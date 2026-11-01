@@ -1,5 +1,5 @@
 /**
- * Common Phrases Flashcards — Modern, Touch-Friendly App Logic
+ * Common Phrases — Pure Minimalist & Mobile-Optimized Application
  */
 
 (function () {
@@ -10,733 +10,389 @@
   let filteredPhrases = [];
   let currentIndex = 0;
   let isFlipped = false;
-  let currentView = 'flashcard'; // 'flashcard' | 'browse' | 'quiz'
-  let activeModule = 'all'; // 'all' | 'curator' | 'attendance' | 'mastered' | 'review'
+  let currentView = 'card'; // 'card' | 'list' | 'quiz'
   let activeCategory = 'all';
   let searchQuery = '';
-  
-  // Settings
-  let playbackSpeed = 1.0;
-  let autoSpeak = true;
-  let isAutoplaying = false;
-  let autoplayTimer = null;
-  let areTranslationsHidden = false;
 
-  // Persistence (LocalStorage)
-  let masteredSet = new Set(JSON.parse(localStorage.getItem('common_mastered') || '[]'));
-  let reviewSet = new Set(JSON.parse(localStorage.getItem('common_review') || '[]'));
-
-  // Audio Player
-  const audioPlayer = new Audio();
-  let currentPlayingId = null;
-
-  // Touch Swipe State
-  let touchStartX = 0;
-  let touchStartY = 0;
-  let touchEndX = 0;
-  let touchEndY = 0;
-  let isSwiping = false;
-
-  // DOM ELEMENTS
+  // DOM Elements
   const els = {
-    // Header & Views
-    tabButtons: document.querySelectorAll('.tab-btn'),
-    viewFlashcard: document.getElementById('view-flashcard'),
-    viewBrowse: document.getElementById('view-browse'),
-    viewQuiz: document.getElementById('view-quiz'),
-    totalBadgeCount: document.getElementById('total-badge-count'),
-    masteredCount: document.getElementById('mastered-count'),
-    reviewCount: document.getElementById('review-count'),
-    headerCatPill: document.getElementById('header-cat-pill'),
+    audioEl: document.getElementById('phrase-audio'),
 
-    // Drawer Elements
-    btnOpenDrawer: document.getElementById('btn-open-drawer'),
-    btnCloseDrawer: document.getElementById('btn-close-drawer'),
-    drawerBackdrop: document.getElementById('drawer-backdrop'),
-    categoriesDrawer: document.getElementById('categories-drawer'),
-    drawerCategoryList: document.getElementById('drawer-category-list'),
-    drawerModuleItems: document.querySelectorAll('.drawer-item[data-module]'),
+    // Top Bar
+    btnOpenCategories: document.getElementById('btn-open-categories'),
+    currentCatDisplay: document.getElementById('current-cat-display'),
+    viewSwitchButtons: document.querySelectorAll('.view-switch-btn'),
+    cardCounter: document.getElementById('card-counter'),
+    progressIndicator: document.getElementById('progress-indicator'),
 
-    // Search
-    searchInput: document.getElementById('search-input'),
-    searchClear: document.getElementById('search-clear'),
+    // Screens
+    screenCard: document.getElementById('screen-card'),
+    screenList: document.getElementById('screen-list'),
+    screenQuiz: document.getElementById('screen-quiz'),
 
-    // Flashcard View
-    currentCardNum: document.getElementById('current-card-num'),
-    filteredTotalNum: document.getElementById('filtered-total-num'),
-    activeCategoryDisplay: document.getElementById('active-category-display'),
-    activeMasteryChip: document.getElementById('active-mastery-chip'),
-    flashcardProgress: document.getElementById('flashcard-progress'),
-    cardWrapper: document.getElementById('card-wrapper'),
+    // Flashcard Elements
+    cardTouchZone: document.getElementById('card-touch-zone'),
     flashcard: document.getElementById('flashcard'),
-    
-    cardFrontCat: document.getElementById('card-front-cat'),
-    cardFrontNum: document.getElementById('card-front-num'),
-    cardFrontText: document.getElementById('card-front-text'),
-    btnPlayCard: document.getElementById('btn-play-card'),
-    audioWaveFront: document.getElementById('audio-wave-front'),
-    
-    cardBackCat: document.getElementById('card-back-cat'),
-    cardBackNum: document.getElementById('card-back-num'),
-    cardBackText: document.getElementById('card-back-text'),
-    btnPlayCardBack: document.getElementById('btn-play-card-back'),
-    audioWaveBack: document.getElementById('audio-wave-back'),
-    btnMarkMaster: document.getElementById('btn-mark-master'),
-    btnMarkReview: document.getElementById('btn-mark-review'),
+    frontText: document.getElementById('front-text'),
+    backText: document.getElementById('back-text'),
+    frontCardNumber: document.getElementById('front-card-number'),
+    backCardNumber: document.getElementById('back-card-number'),
+    btnPlayFront: document.getElementById('btn-play-front'),
+    btnPlayBack: document.getElementById('btn-play-back'),
+    waveFront: document.getElementById('wave-front'),
+    waveBack: document.getElementById('wave-back'),
 
-    // Navigation & Aux
-    btnPrevCard: document.getElementById('btn-prev-card'),
-    btnFlipCard: document.getElementById('btn-flip-card'),
-    btnNextCard: document.getElementById('btn-next-card'),
-    btnShuffle: document.getElementById('btn-shuffle'),
-    btnAutoplay: document.getElementById('btn-autoplay'),
-    autoplayIcon: document.getElementById('autoplay-icon'),
-    autoplayText: document.getElementById('autoplay-text'),
-    btnAutoSpeak: document.getElementById('btn-auto-speak'),
-    speedButtons: document.querySelectorAll('.speed-opt'),
+    // Navigation Buttons
+    btnPrev: document.getElementById('btn-prev'),
+    btnFlip: document.getElementById('btn-flip'),
+    btnNext: document.getElementById('btn-next'),
 
-    // Browse View
-    browseShowingCount: document.getElementById('browse-showing-count'),
-    browseGrid: document.getElementById('browse-grid'),
-    btnToggleAllTranslations: document.getElementById('btn-toggle-all-translations'),
+    // List Screen
+    listContainer: document.getElementById('list-container'),
 
-    // Quiz View
-    quizCatBadge: document.getElementById('quiz-cat-badge'),
-    quizScorePill: document.getElementById('quiz-score-pill'),
-    quizQuestionEn: document.getElementById('quiz-question-en'),
+    // Quiz Screen
+    quizEnText: document.getElementById('quiz-en-text'),
     btnQuizAudio: document.getElementById('btn-quiz-audio'),
-    quizOptionsList: document.getElementById('quiz-options-list'),
-    quizFeedbackText: document.getElementById('quiz-feedback-text'),
+    quizChoices: document.getElementById('quiz-choices'),
+    quizStatus: document.getElementById('quiz-status'),
+    quizScore: document.getElementById('quiz-score'),
     btnQuizNext: document.getElementById('btn-quiz-next'),
+
+    // Category Bottom Sheet
+    sheetOverlay: document.getElementById('sheet-overlay'),
+    categorySheet: document.getElementById('category-sheet'),
+    btnCloseSheet: document.getElementById('btn-close-sheet'),
+    sheetSearchInput: document.getElementById('sheet-search-input'),
+    categorySheetList: document.getElementById('category-sheet-list'),
 
     toast: document.getElementById('toast')
   };
 
-  // Web Audio subtle click / flip tone
-  let audioCtx = null;
-  function playHapticTone(type) {
-    try {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      if (audioCtx.state === 'suspended') audioCtx.resume();
-      
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      
-      const now = audioCtx.currentTime;
-      if (type === 'flip') {
-        osc.frequency.setValueAtTime(320, now);
-        osc.frequency.exponentialRampToValueAtTime(180, now + 0.07);
-        gain.gain.setValueAtTime(0.04, now);
-        gain.gain.linearRampToValueAtTime(0.001, now + 0.07);
-        osc.start(now);
-        osc.stop(now + 0.07);
-      } else if (type === 'success') {
-        osc.frequency.setValueAtTime(523.25, now);
-        osc.frequency.setValueAtTime(659.25, now + 0.08);
-        gain.gain.setValueAtTime(0.06, now);
-        gain.gain.linearRampToValueAtTime(0.001, now + 0.18);
-        osc.start(now);
-        osc.stop(now + 0.18);
-      }
-    } catch (e) {}
-  }
+  // Touch Swipe Variables
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+  let hasSwiped = false;
 
   // --- INITIALIZATION ---
   function init() {
     if (window.PHRASES_DATA && Array.isArray(window.PHRASES_DATA)) {
       allPhrases = window.PHRASES_DATA;
     } else {
-      console.error('Phrases data not loaded!');
+      console.error('Data not loaded');
       return;
     }
 
-    renderDrawerCategories();
-    updateMasteryStats();
+    renderCategorySheet();
     applyFilters();
     bindEvents();
-    bindTouchGestures();
     renderCurrentCard();
+    setupMobileAudioUnlock();
   }
 
-  // --- DRAWER OPEN/CLOSE ---
-  function openDrawer() {
-    els.categoriesDrawer.classList.add('open');
-    els.drawerBackdrop.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  // --- AUDIO UNLOCK FOR MOBILE (IOS SAFARI / ANDROID) ---
+  // Mobile browsers restrict audio playback unless unlocked during a user touch/click.
+  let isAudioUnlocked = false;
+  function setupMobileAudioUnlock() {
+    const unlock = () => {
+      if (isAudioUnlocked) return;
+      // Prime the audio element silently
+      els.audioEl.src = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
+      els.audioEl.play().then(() => {
+        els.audioEl.pause();
+        isAudioUnlocked = true;
+      }).catch(() => {});
+      document.removeEventListener('touchstart', unlock, true);
+      document.removeEventListener('click', unlock, true);
+    };
+    document.addEventListener('touchstart', unlock, true);
+    document.addEventListener('click', unlock, true);
   }
 
-  function closeDrawer() {
-    els.categoriesDrawer.classList.remove('open');
-    els.drawerBackdrop.classList.remove('open');
-    document.body.style.overflow = '';
+  // --- CATEGORY BOTTOM SHEET ---
+  function openCategorySheet() {
+    els.sheetOverlay.classList.add('open');
+    els.categorySheet.classList.add('open');
   }
 
-  // --- RENDER DRAWER CATEGORIES ---
-  function renderDrawerCategories() {
+  function closeCategorySheet() {
+    els.sheetOverlay.classList.remove('open');
+    els.categorySheet.classList.remove('open');
+  }
+
+  function renderCategorySheet() {
     const catMap = new Map();
     allPhrases.forEach(p => {
       catMap.set(p.category, (catMap.get(p.category) || 0) + 1);
     });
 
     let html = `
-      <button class="drawer-item ${activeCategory === 'all' ? 'active' : ''}" data-category="all">
-        <span class="drawer-item-icon">📂</span>
-        <span class="drawer-item-label">All Categories</span>
-        <span class="drawer-item-count">${allPhrases.length}</span>
+      <button class="sheet-item ${activeCategory === 'all' ? 'active' : ''}" data-cat="all">
+        <span>📚 All Phrases</span>
+        <span class="sheet-item-count">${allPhrases.length}</span>
       </button>
     `;
 
     for (const [cat, count] of catMap.entries()) {
-      const isClassroom = cat.match(/^[A-N]\./);
-      const icon = isClassroom ? '💬' : '📋';
+      const cleanTitle = cat.replace(/^[A-Z]\.\s*/, '');
       const isActive = activeCategory === cat;
       html += `
-        <button class="drawer-item ${isActive ? 'active' : ''}" data-category="${escapeHtml(cat)}">
-          <span class="drawer-item-icon">${icon}</span>
-          <span class="drawer-item-label" title="${escapeHtml(cat)}">${escapeHtml(cat)}</span>
-          <span class="drawer-item-count">${count}</span>
+        <button class="sheet-item ${isActive ? 'active' : ''}" data-cat="${escapeHtml(cat)}">
+          <span>${escapeHtml(cleanTitle)}</span>
+          <span class="sheet-item-count">${count}</span>
         </button>
       `;
     }
 
-    els.drawerCategoryList.innerHTML = html;
+    els.categorySheetList.innerHTML = html;
 
-    // Attach listeners
-    els.drawerCategoryList.querySelectorAll('.drawer-item[data-category]').forEach(btn => {
+    els.categorySheetList.querySelectorAll('.sheet-item').forEach(btn => {
       btn.addEventListener('click', () => {
-        els.drawerCategoryList.querySelectorAll('.drawer-item').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeCategory = btn.getAttribute('data-category');
+        activeCategory = btn.getAttribute('data-cat');
         currentIndex = 0;
-        updateHeaderIndicator();
+        updateCategoryDisplay();
         applyFilters();
-        closeDrawer();
+        closeCategorySheet();
       });
     });
   }
 
-  function cleanCategoryTitle(raw) {
-    if (!raw) return 'All';
-    // Remove "A. " or similar letter prefixes
-    let clean = raw.replace(/^[A-Z]\.\s*/, '');
-    // Take part before parenthesis if too long
-    return clean.split('(')[0].trim();
-  }
-
-  function updateHeaderIndicator() {
-    if (activeCategory !== 'all') {
-      const shortCat = cleanCategoryTitle(activeCategory);
-      els.headerCatPill.textContent = shortCat;
-      els.activeCategoryDisplay.textContent = shortCat;
-    } else if (activeModule !== 'all') {
-      const modLabels = {
-        curator: "Classroom",
-        attendance: "Attendance",
-        mastered: "Mastered",
-        review: "Review"
-      };
-      const label = modLabels[activeModule] || "All";
-      els.headerCatPill.textContent = label;
-      els.activeCategoryDisplay.textContent = label;
+  function updateCategoryDisplay() {
+    if (activeCategory === 'all') {
+      els.currentCatDisplay.textContent = 'All Phrases';
     } else {
-      els.headerCatPill.textContent = "All";
-      els.activeCategoryDisplay.textContent = "All Categories";
+      const cleanTitle = activeCategory.replace(/^[A-Z]\.\s*/, '').split('(')[0].trim();
+      els.currentCatDisplay.textContent = cleanTitle;
     }
   }
 
-  // --- FILTERS & SEARCH ---
+  // --- FILTERS ---
   function applyFilters() {
-    filteredPhrases = allPhrases.filter(item => {
-      // Module Filter
-      if (activeModule === 'curator' && !item.id.startsWith('curator_')) return false;
-      if (activeModule === 'attendance' && !item.id.startsWith('late_')) return false;
-      if (activeModule === 'mastered' && !masteredSet.has(item.id)) return false;
-      if (activeModule === 'review' && !reviewSet.has(item.id)) return false;
-
-      // Category Filter
-      if (activeCategory !== 'all' && item.category !== activeCategory) return false;
-
-      // Search Query
+    filteredPhrases = allPhrases.filter(p => {
+      if (activeCategory !== 'all' && p.category !== activeCategory) return false;
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase().trim();
-        const enMatch = item.english.toLowerCase().includes(q);
-        const uzMatch = item.uzbek.toLowerCase().includes(q);
-        const catMatch = item.category.toLowerCase().includes(q);
-        if (!enMatch && !uzMatch && !catMatch) return false;
+        const enMatch = p.english.toLowerCase().includes(q);
+        const uzMatch = p.uzbek.toLowerCase().includes(q);
+        if (!enMatch && !uzMatch) return false;
       }
-
       return true;
     });
 
-    if (currentIndex >= filteredPhrases.length) {
-      currentIndex = 0;
-    }
+    if (currentIndex >= filteredPhrases.length) currentIndex = 0;
 
-    updateCounterDisplays();
+    updateCounter();
 
-    if (currentView === 'flashcard') {
+    if (currentView === 'card') {
       renderCurrentCard();
-    } else if (currentView === 'browse') {
-      renderBrowseGrid();
+    } else if (currentView === 'list') {
+      renderListScreen();
     } else if (currentView === 'quiz') {
       renderQuizQuestion();
     }
   }
 
-  function updateCounterDisplays() {
+  function updateCounter() {
     const total = filteredPhrases.length;
-    els.filteredTotalNum.textContent = total;
-    els.totalBadgeCount.textContent = allPhrases.length;
-    els.browseShowingCount.textContent = total;
-    updateMasteryStats();
+    els.cardCounter.textContent = total > 0 ? `${currentIndex + 1}/${total}` : '0/0';
+    const pct = total > 0 ? ((currentIndex + 1) / total) * 100 : 0;
+    els.progressIndicator.style.width = `${pct}%`;
   }
 
-  function updateMasteryStats() {
-    els.masteredCount.textContent = masteredSet.size;
-    els.reviewCount.textContent = reviewSet.size;
-    localStorage.setItem('common_mastered', JSON.stringify([...masteredSet]));
-    localStorage.setItem('common_review', JSON.stringify([...reviewSet]));
-  }
-
-  // --- VIEW SWITCHING ---
-  function switchView(viewName) {
-    currentView = viewName;
-    els.tabButtons.forEach(btn => {
-      const isTarget = btn.getAttribute('data-view') === viewName;
-      btn.classList.toggle('active', isTarget);
-      btn.setAttribute('aria-selected', isTarget);
-    });
-
-    els.viewFlashcard.style.display = viewName === 'flashcard' ? 'flex' : 'none';
-    els.viewBrowse.style.display = viewName === 'browse' ? 'flex' : 'none';
-    els.viewQuiz.style.display = viewName === 'quiz' ? 'block' : 'none';
-
-    stopAutoplay();
-
-    if (viewName === 'flashcard') {
-      renderCurrentCard();
-    } else if (viewName === 'browse') {
-      renderBrowseGrid();
-    } else if (viewName === 'quiz') {
-      initQuiz();
-    }
-  }
-
-  // --- FLASHCARD ENGINE ---
+  // --- CARD SCREEN LOGIC ---
   function renderCurrentCard() {
     if (filteredPhrases.length === 0) {
-      els.cardFrontText.textContent = "No phrases match your selection.";
-      els.cardFrontCat.textContent = "Empty";
-      els.cardFrontNum.textContent = "#0";
-      els.cardBackText.textContent = "Hech qanday ibora topilmadi.";
-      els.btnPrevCard.disabled = true;
-      els.btnNextCard.disabled = true;
-      els.btnFlipCard.disabled = true;
-      els.currentCardNum.textContent = 0;
-      els.flashcardProgress.style.width = '0%';
+      els.frontText.textContent = "No phrases found.";
+      els.backText.textContent = "Hech qanday ibora topilmadi.";
+      els.btnPrev.disabled = true;
+      els.btnNext.disabled = true;
+      els.btnFlip.disabled = true;
       return;
     }
 
-    els.btnPrevCard.disabled = false;
-    els.btnNextCard.disabled = false;
-    els.btnFlipCard.disabled = false;
+    els.btnPrev.disabled = false;
+    els.btnNext.disabled = false;
+    els.btnFlip.disabled = false;
 
     setCardFlipped(false);
 
     const phrase = filteredPhrases[currentIndex];
+    els.frontText.textContent = phrase.english;
+    els.backText.textContent = phrase.uzbek;
+    els.frontCardNumber.textContent = `#${phrase.number}`;
+    els.backCardNumber.textContent = `#${phrase.number}`;
 
-    // Numbers & Progress
-    els.currentCardNum.textContent = currentIndex + 1;
-    els.filteredTotalNum.textContent = filteredPhrases.length;
-    const pct = ((currentIndex + 1) / filteredPhrases.length) * 100;
-    els.flashcardProgress.style.width = `${pct}%`;
-
-    // Active Category
-    const shortCategory = cleanCategoryTitle(phrase.category);
-    els.activeCategoryDisplay.textContent = shortCategory;
-    
-    // Mastery chip
-    if (masteredSet.has(phrase.id)) {
-      els.activeMasteryChip.textContent = "⭐ Mastered";
-      els.activeMasteryChip.className = "status-badge-chip mastered";
-    } else if (reviewSet.has(phrase.id)) {
-      els.activeMasteryChip.textContent = "⚠️ Review";
-      els.activeMasteryChip.className = "status-badge-chip learning";
-    } else {
-      els.activeMasteryChip.textContent = "Learning";
-      els.activeMasteryChip.className = "status-badge-chip learning";
-    }
-
-    // Card Front
-    els.cardFrontCat.textContent = shortCategory;
-    els.cardFrontNum.textContent = `#${phrase.number}`;
-    els.cardFrontText.textContent = phrase.english;
-
-    // Card Back
-    els.cardBackCat.textContent = "O'zbekcha";
-    els.cardBackNum.textContent = `#${phrase.number}`;
-    els.cardBackText.textContent = phrase.uzbek;
-
-    // Auto-play audio if enabled
-    if (autoSpeak && currentView === 'flashcard' && !isAutoplaying) {
-      playPhraseAudio(phrase);
-    }
+    updateCounter();
   }
 
-  function setCardFlipped(state) {
-    isFlipped = state;
+  function setCardFlipped(flipped) {
+    isFlipped = flipped;
     if (isFlipped) {
       els.flashcard.classList.add('flipped');
-      playHapticTone('flip');
     } else {
       els.flashcard.classList.remove('flipped');
     }
   }
 
-  function toggleCardFlip() {
+  function toggleFlip() {
     setCardFlipped(!isFlipped);
   }
 
-  function goToCard(idx) {
-    if (filteredPhrases.length === 0) return;
-    if (idx < 0) idx = filteredPhrases.length - 1;
-    if (idx >= filteredPhrases.length) idx = 0;
-    currentIndex = idx;
-    renderCurrentCard();
-  }
-
   function nextCard() {
-    goToCard(currentIndex + 1);
+    if (filteredPhrases.length === 0) return;
+    currentIndex = (currentIndex + 1) % filteredPhrases.length;
+    renderCurrentCard();
   }
 
   function prevCard() {
-    goToCard(currentIndex - 1);
-  }
-
-  function shuffleCards() {
-    for (let i = filteredPhrases.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [filteredPhrases[i], filteredPhrases[j]] = [filteredPhrases[j], filteredPhrases[i]];
-    }
-    currentIndex = 0;
+    if (filteredPhrases.length === 0) return;
+    currentIndex = (currentIndex - 1 + filteredPhrases.length) % filteredPhrases.length;
     renderCurrentCard();
-    showToast("Cards shuffled");
   }
 
-  // --- TOUCH GESTURE SUPPORT (MOBILE SWIPE) ---
-  function bindTouchGestures() {
-    els.cardWrapper.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-      touchStartY = e.changedTouches[0].screenY;
-      isSwiping = false;
-    }, { passive: true });
-
-    els.cardWrapper.addEventListener('touchmove', (e) => {
-      const currentX = e.changedTouches[0].screenX;
-      const currentY = e.changedTouches[0].screenY;
-      const diffX = Math.abs(currentX - touchStartX);
-      const diffY = Math.abs(currentY - touchStartY);
-      if (diffX > 15 && diffX > diffY) {
-        isSwiping = true;
-      }
-    }, { passive: true });
-
-    els.cardWrapper.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      touchEndY = e.changedTouches[0].screenY;
-      handleSwipeGesture();
-    }, { passive: true });
-  }
-
-  function handleSwipeGesture() {
-    const diffX = touchEndX - touchStartX;
-    const diffY = touchEndY - touchStartY;
-    const threshold = 45; // Minimum swipe distance in px
-
-    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > threshold) {
-      if (diffX < 0) {
-        // Swipe Left -> Next Card
-        nextCard();
-      } else {
-        // Swipe Right -> Prev Card
-        prevCard();
-      }
-    }
-  }
-
-  // --- AUDIO PLAYBACK ---
-  function playPhraseAudio(phrase, onEnded) {
+  // --- AUDIO ENGINE (ZERO API CALLS, 100% PRE-RECORDED STATIC MP3s) ---
+  function playPhraseAudio(phrase) {
     if (!phrase) return;
 
-    audioPlayer.pause();
-    window.speechSynthesis.cancel();
-    setWaveAnimation(false);
-
-    currentPlayingId = phrase.id;
     setWaveAnimation(true);
+    els.audioEl.pause();
 
-    audioPlayer.src = phrase.audio;
-    audioPlayer.playbackRate = playbackSpeed;
+    // Use relative path directly pointing to static file on Vercel
+    els.audioEl.src = phrase.audio;
 
-    const playPromise = audioPlayer.play();
+    const playPromise = els.audioEl.play();
     if (playPromise !== undefined) {
-      playPromise.then(() => {}).catch(() => {
-        fallbackSpeechSynthesis(phrase.english, onEnded);
+      playPromise.then(() => {
+        // Playing cleanly
+      }).catch(err => {
+        console.warn('Audio play restricted or offline, using speech synthesis fallback:', err);
+        fallbackSpeech(phrase.english);
       });
     }
 
-    audioPlayer.onended = () => {
-      setWaveAnimation(false);
-      currentPlayingId = null;
-      if (onEnded) onEnded();
-    };
-
-    audioPlayer.onerror = () => {
-      fallbackSpeechSynthesis(phrase.english, onEnded);
+    els.audioEl.onended = () => setWaveAnimation(false);
+    els.audioEl.onerror = () => {
+      fallbackSpeech(phrase.english);
     };
   }
 
-  function fallbackSpeechSynthesis(text, onEnded) {
+  function fallbackSpeech(text) {
     if (!('speechSynthesis' in window)) {
       setWaveAnimation(false);
       return;
     }
+    window.speechSynthesis.cancel();
     const cleanText = text.replace(/["“”]/g, '').trim();
     const utterance = new SpeechSynthesisUtterance(cleanText);
-    utterance.rate = playbackSpeed;
     utterance.lang = 'en-US';
-
-    const voices = window.speechSynthesis.getVoices();
-    const naturalVoice = voices.find(v => v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Samantha') || v.name.includes('Google') || v.name.includes('Daniel')));
-    if (naturalVoice) utterance.voice = naturalVoice;
-
-    utterance.onend = () => {
-      setWaveAnimation(false);
-      currentPlayingId = null;
-      if (onEnded) onEnded();
-    };
-    utterance.onerror = () => {
-      setWaveAnimation(false);
-      currentPlayingId = null;
-    };
-
+    utterance.onend = () => setWaveAnimation(false);
+    utterance.onerror = () => setWaveAnimation(false);
     window.speechSynthesis.speak(utterance);
   }
 
-  function setWaveAnimation(isPlaying) {
-    if (isPlaying) {
-      els.btnPlayCard.classList.add('playing');
-      els.btnPlayCardBack.classList.add('playing');
+  function setWaveAnimation(playing) {
+    if (playing) {
+      els.btnPlayFront.classList.add('playing');
+      els.btnPlayBack.classList.add('playing');
     } else {
-      els.btnPlayCard.classList.remove('playing');
-      els.btnPlayCardBack.classList.remove('playing');
+      els.btnPlayFront.classList.remove('playing');
+      els.btnPlayBack.classList.remove('playing');
     }
   }
 
-  // --- AUTOPLAY SLIDESHOW ---
-  function toggleAutoplay() {
-    if (isAutoplaying) {
-      stopAutoplay();
-    } else {
-      startAutoplay();
-    }
-  }
-
-  function startAutoplay() {
-    isAutoplaying = true;
-    els.autoplayIcon.textContent = '⏸';
-    els.autoplayText.textContent = 'Stop';
-    els.btnAutoplay.classList.add('active');
-    runAutoplayStep();
-  }
-
-  function stopAutoplay() {
-    isAutoplaying = false;
-    clearTimeout(autoplayTimer);
-    els.autoplayIcon.textContent = '▶';
-    els.autoplayText.textContent = 'Autoplay';
-    els.btnAutoplay.classList.remove('active');
-  }
-
-  function runAutoplayStep() {
-    if (!isAutoplaying || filteredPhrases.length === 0) return;
-
-    setCardFlipped(false);
-    const phrase = filteredPhrases[currentIndex];
-
-    playPhraseAudio(phrase, () => {
-      if (!isAutoplaying) return;
-      autoplayTimer = setTimeout(() => {
-        if (!isAutoplaying) return;
-        setCardFlipped(true);
-        autoplayTimer = setTimeout(() => {
-          if (!isAutoplaying) return;
-          nextCard();
-          autoplayTimer = setTimeout(runAutoplayStep, 400);
-        }, 2200);
-      }, 1200);
-    });
-  }
-
-  // --- MASTERY & BOOKMARKS ---
-  function markMastered(id) {
-    reviewSet.delete(id);
-    if (masteredSet.has(id)) {
-      masteredSet.delete(id);
-      showToast("Removed from Mastered");
-    } else {
-      masteredSet.add(id);
-      playHapticTone('success');
-      showToast("✓ Marked as Mastered");
-    }
-    updateMasteryStats();
-    renderCurrentCard();
-  }
-
-  function markReview(id) {
-    masteredSet.delete(id);
-    if (reviewSet.has(id)) {
-      reviewSet.delete(id);
-      showToast("Removed from Review");
-    } else {
-      reviewSet.add(id);
-      showToast("⚠️ Marked for Review");
-    }
-    updateMasteryStats();
-    renderCurrentCard();
-  }
-
-  // --- VIEW 2: BROWSE GRID ---
-  function renderBrowseGrid() {
+  // --- VIEW 2: LIST SCREEN ---
+  function renderListScreen() {
     if (filteredPhrases.length === 0) {
-      els.browseGrid.innerHTML = `
-        <div class="empty-state" style="grid-column: 1 / -1;">
-          <div class="empty-icon">🔍</div>
-          <h3>No phrases found</h3>
-          <p>Try clearing your search query or choosing another category from the drawer.</p>
-        </div>
-      `;
+      els.listContainer.innerHTML = '<div style="text-align:center; padding:2rem; color:var(--text-muted);">No phrases found.</div>';
       return;
     }
 
     let html = '';
     filteredPhrases.forEach((p, idx) => {
-      const isMastered = masteredSet.has(p.id);
-      const isReview = reviewSet.has(p.id);
-      const starIcon = isMastered ? '⭐' : (isReview ? '⚠️' : '');
-      const shortCat = cleanCategoryTitle(p.category);
-
       html += `
-        <div class="phrase-card" data-id="${p.id}" data-index="${idx}">
-          <div class="phrase-card-top">
-            <span class="phrase-cat-badge">${escapeHtml(shortCat)}</span>
-            <div style="display:flex; align-items:center; gap:0.4rem;">
-              <span>${starIcon}</span>
-              <span class="phrase-num">#${p.number}</span>
-            </div>
+        <div class="list-item-card" data-idx="${idx}">
+          <div class="list-item-texts">
+            <div class="list-en">${escapeHtml(p.english)}</div>
+            <div class="list-uz">${escapeHtml(p.uzbek)}</div>
           </div>
-          
-          <div class="phrase-card-body">
-            <div class="phrase-en">${escapeHtml(p.english)}</div>
-            <div class="phrase-uz" style="${areTranslationsHidden ? 'filter: blur(5px);' : ''}">
-              ${escapeHtml(p.uzbek)}
-            </div>
-          </div>
-
-          <div class="phrase-card-footer">
-            <button class="btn-play-mini" data-play-id="${p.id}">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              </svg>
-              <span>Listen</span>
-            </button>
-            <button class="btn-card-flip-mini" data-study-idx="${idx}">
-              Open in Card ↗
-            </button>
-          </div>
+          <button class="list-play-btn" data-audio-id="${p.id}" aria-label="Play audio">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          </button>
         </div>
       `;
     });
 
-    els.browseGrid.innerHTML = html;
+    els.listContainer.innerHTML = html;
 
-    els.browseGrid.querySelectorAll('[data-play-id]').forEach(btn => {
+    els.listContainer.querySelectorAll('.list-play-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        const id = btn.getAttribute('data-play-id');
+        const id = btn.getAttribute('data-audio-id');
         const phrase = allPhrases.find(p => p.id === id);
         if (phrase) playPhraseAudio(phrase);
       });
     });
 
-    els.browseGrid.querySelectorAll('[data-study-idx]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const idx = parseInt(btn.getAttribute('data-study-idx'), 10);
-        currentIndex = idx;
-        switchView('flashcard');
+    els.listContainer.querySelectorAll('.list-item-card').forEach(card => {
+      card.addEventListener('click', () => {
+        currentIndex = parseInt(card.getAttribute('data-idx'), 10);
+        switchView('card');
       });
     });
   }
 
   // --- VIEW 3: PRACTICE QUIZ ---
-  let quizCurrentQuestion = null;
+  let quizTarget = null;
   let quizScore = 0;
-  let quizTotal = 0;
+  let quizCount = 0;
   let quizAnswered = false;
 
   function initQuiz() {
     quizScore = 0;
-    quizTotal = 0;
+    quizCount = 0;
     renderQuizQuestion();
   }
 
   function renderQuizQuestion() {
     const pool = filteredPhrases.length >= 4 ? filteredPhrases : allPhrases;
-    if (pool.length < 4) {
-      els.quizQuestionEn.textContent = "Not enough phrases for quiz!";
-      return;
-    }
+    if (pool.length < 4) return;
 
     quizAnswered = false;
     els.btnQuizNext.style.display = 'none';
-    els.quizFeedbackText.textContent = 'Choose the correct translation:';
-    els.quizFeedbackText.className = 'quiz-feedback-text';
+    els.quizStatus.textContent = 'Select the correct Uzbek translation';
+    els.quizStatus.className = 'quiz-status';
 
-    const targetIdx = Math.floor(Math.random() * pool.length);
-    quizCurrentQuestion = pool[targetIdx];
+    const randIdx = Math.floor(Math.random() * pool.length);
+    quizTarget = pool[randIdx];
 
-    els.quizCatBadge.textContent = cleanCategoryTitle(quizCurrentQuestion.category);
-    els.quizQuestionEn.textContent = quizCurrentQuestion.english;
-    els.quizScorePill.textContent = `Score: ${quizScore} / ${quizTotal}`;
+    els.quizEnText.textContent = quizTarget.english;
+    els.quizScore.textContent = `Score: ${quizScore}/${quizCount}`;
 
     const distractors = [];
     while (distractors.length < 3) {
       const rand = pool[Math.floor(Math.random() * pool.length)];
-      if (rand.id !== quizCurrentQuestion.id && !distractors.some(d => d.id === rand.id)) {
+      if (rand.id !== quizTarget.id && !distractors.some(d => d.id === rand.id)) {
         distractors.push(rand);
       }
     }
 
-    const options = [quizCurrentQuestion, ...distractors].sort(() => Math.random() - 0.5);
+    const options = [quizTarget, ...distractors].sort(() => Math.random() - 0.5);
 
     let html = '';
     options.forEach(opt => {
       html += `
-        <button class="quiz-opt-btn" data-opt-id="${opt.id}">
-          <span>${escapeHtml(opt.uzbek)}</span>
-          <span class="quiz-check-icon"></span>
+        <button class="quiz-choice-btn" data-id="${opt.id}">
+          ${escapeHtml(opt.uzbek)}
         </button>
       `;
     });
-    els.quizOptionsList.innerHTML = html;
+    els.quizChoices.innerHTML = html;
 
-    playPhraseAudio(quizCurrentQuestion);
-
-    els.quizOptionsList.querySelectorAll('.quiz-opt-btn').forEach(btn => {
+    els.quizChoices.querySelectorAll('.quiz-choice-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         if (quizAnswered) return;
         handleQuizAnswer(btn);
@@ -746,42 +402,45 @@
 
   function handleQuizAnswer(clickedBtn) {
     quizAnswered = true;
-    quizTotal++;
-    const selectedId = clickedBtn.getAttribute('data-opt-id');
-    const isCorrect = selectedId === quizCurrentQuestion.id;
+    quizCount++;
+    const chosenId = clickedBtn.getAttribute('data-id');
+    const isCorrect = chosenId === quizTarget.id;
 
     if (isCorrect) {
       quizScore++;
       clickedBtn.classList.add('correct');
-      clickedBtn.querySelector('.quiz-check-icon').textContent = '✓ Correct';
-      els.quizFeedbackText.textContent = '🎉 Correct!';
-      els.quizFeedbackText.className = 'quiz-feedback-text correct';
-      playHapticTone('success');
-      markMastered(quizCurrentQuestion.id);
+      els.quizStatus.textContent = '✓ Correct!';
+      els.quizStatus.className = 'quiz-status correct';
     } else {
       clickedBtn.classList.add('wrong');
-      clickedBtn.querySelector('.quiz-check-icon').textContent = '✗';
-      els.quizFeedbackText.textContent = `Correct: ${quizCurrentQuestion.uzbek}`;
-      els.quizFeedbackText.className = 'quiz-feedback-text wrong';
-
-      const correctBtn = els.quizOptionsList.querySelector(`[data-opt-id="${quizCurrentQuestion.id}"]`);
+      els.quizStatus.textContent = `Correct: ${quizTarget.uzbek}`;
+      els.quizStatus.className = 'quiz-status wrong';
+      const correctBtn = els.quizChoices.querySelector(`[data-id="${quizTarget.id}"]`);
       if (correctBtn) correctBtn.classList.add('correct');
-      markReview(quizCurrentQuestion.id);
     }
 
-    els.quizScorePill.textContent = `Score: ${quizScore} / ${quizTotal}`;
+    els.quizScore.textContent = `Score: ${quizScore}/${quizCount}`;
     els.btnQuizNext.style.display = 'block';
   }
 
-  // --- TOAST NOTIFICATIONS ---
-  let toastTimer = null;
-  function showToast(msg) {
-    els.toast.textContent = msg;
-    els.toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      els.toast.classList.remove('show');
-    }, 1800);
+  // --- VIEW SWITCHING ---
+  function switchView(viewName) {
+    currentView = viewName;
+    els.viewSwitchButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-view') === viewName);
+    });
+
+    els.screenCard.style.display = viewName === 'card' ? 'flex' : 'none';
+    els.screenList.style.display = viewName === 'list' ? 'block' : 'none';
+    els.screenQuiz.style.display = viewName === 'quiz' ? 'block' : 'none';
+
+    if (viewName === 'card') {
+      renderCurrentCard();
+    } else if (viewName === 'list') {
+      renderListScreen();
+    } else if (viewName === 'quiz') {
+      initQuiz();
+    }
   }
 
   function escapeHtml(str) {
@@ -795,140 +454,89 @@
 
   // --- EVENT BINDINGS ---
   function bindEvents() {
-    // Drawer open / close
-    els.btnOpenDrawer.addEventListener('click', openDrawer);
-    els.btnCloseDrawer.addEventListener('click', closeDrawer);
-    els.drawerBackdrop.addEventListener('click', closeDrawer);
-    els.activeCategoryDisplay.addEventListener('click', openDrawer);
-
-    // Escape key closes drawer
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && els.categoriesDrawer.classList.contains('open')) {
-        closeDrawer();
-      }
-    });
-
-    // Navigation Tabs
-    els.tabButtons.forEach(btn => {
+    // Mode Switch
+    els.viewSwitchButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         switchView(btn.getAttribute('data-view'));
       });
     });
 
-    // Drawer Module filters
-    els.drawerModuleItems.forEach(btn => {
-      btn.addEventListener('click', () => {
-        els.drawerModuleItems.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeModule = btn.getAttribute('data-module');
-        activeCategory = 'all';
-        els.drawerCategoryList.querySelectorAll('.drawer-item').forEach(b => b.classList.remove('active'));
-        const allCatBtn = els.drawerCategoryList.querySelector('[data-category="all"]');
-        if (allCatBtn) allCatBtn.classList.add('active');
-        currentIndex = 0;
-        updateHeaderIndicator();
-        applyFilters();
-        closeDrawer();
-      });
-    });
+    // Category Bottom Sheet Open / Close
+    els.btnOpenCategories.addEventListener('click', openCategorySheet);
+    els.btnCloseSheet.addEventListener('click', closeCategorySheet);
+    els.sheetOverlay.addEventListener('click', closeCategorySheet);
 
-    // Search
-    els.searchInput.addEventListener('input', (e) => {
+    // Sheet Search
+    els.sheetSearchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
-      els.searchClear.classList.toggle('visible', searchQuery.length > 0);
       currentIndex = 0;
       applyFilters();
     });
 
-    els.searchClear.addEventListener('click', () => {
-      els.searchInput.value = '';
-      searchQuery = '';
-      els.searchClear.classList.remove('visible');
-      currentIndex = 0;
-      applyFilters();
+    // Flashcard Flip & Nav
+    els.cardTouchZone.addEventListener('click', (e) => {
+      if (hasSwiped) return;
+      if (e.target.closest('.audio-action-btn')) return;
+      toggleFlip();
     });
 
-    // Card Flip (click / tap)
-    els.cardWrapper.addEventListener('click', (e) => {
-      if (isSwiping) return; // Prevent flip on swipe gesture
-      if (e.target.closest('.audio-play-large-btn') || e.target.closest('.btn-mastery')) return;
-      toggleCardFlip();
-    });
+    els.btnFlip.addEventListener('click', toggleFlip);
+    els.btnPrev.addEventListener('click', prevCard);
+    els.btnNext.addEventListener('click', nextCard);
 
-    els.btnFlipCard.addEventListener('click', toggleCardFlip);
-
-    // Prev / Next
-    els.btnPrevCard.addEventListener('click', prevCard);
-    els.btnNextCard.addEventListener('click', nextCard);
-
-    // Audio Play Buttons
-    els.btnPlayCard.addEventListener('click', (e) => {
+    // Audio Buttons
+    els.btnPlayFront.addEventListener('click', (e) => {
       e.stopPropagation();
       playPhraseAudio(filteredPhrases[currentIndex]);
     });
 
-    els.btnPlayCardBack.addEventListener('click', (e) => {
+    els.btnPlayBack.addEventListener('click', (e) => {
       e.stopPropagation();
       playPhraseAudio(filteredPhrases[currentIndex]);
-    });
-
-    // Card Mastery
-    els.btnMarkMaster.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const p = filteredPhrases[currentIndex];
-      if (p) markMastered(p.id);
-    });
-
-    els.btnMarkReview.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const p = filteredPhrases[currentIndex];
-      if (p) markReview(p.id);
-    });
-
-    // Shuffle & Autoplay
-    els.btnShuffle.addEventListener('click', shuffleCards);
-    els.btnAutoplay.addEventListener('click', toggleAutoplay);
-
-    // Speed Selector
-    els.speedButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        els.speedButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        playbackSpeed = parseFloat(btn.getAttribute('data-speed'));
-        audioPlayer.playbackRate = playbackSpeed;
-        showToast(`Speed: ${playbackSpeed}x`);
-      });
-    });
-
-    // Auto-Speak on flip
-    els.btnAutoSpeak.addEventListener('click', () => {
-      autoSpeak = !autoSpeak;
-      els.btnAutoSpeak.classList.toggle('active', autoSpeak);
-      els.btnAutoSpeak.querySelector('span').textContent = autoSpeak ? '🔊 Auto' : '🔈 Muted';
-      showToast(autoSpeak ? "Auto-audio on" : "Auto-audio off");
-    });
-
-    // Browse Toggle Translations
-    els.btnToggleAllTranslations.addEventListener('click', () => {
-      areTranslationsHidden = !areTranslationsHidden;
-      renderBrowseGrid();
     });
 
     // Quiz Controls
     els.btnQuizAudio.addEventListener('click', () => {
-      if (quizCurrentQuestion) playPhraseAudio(quizCurrentQuestion);
+      if (quizTarget) playPhraseAudio(quizTarget);
     });
-
     els.btnQuizNext.addEventListener('click', renderQuizQuestion);
 
-    // Keyboard Shortcuts
-    window.addEventListener('keydown', (e) => {
-      if (document.activeElement === els.searchInput) return;
+    // Touch Swipe Gestures
+    els.cardTouchZone.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+      hasSwiped = false;
+    }, { passive: true });
 
-      if (currentView === 'flashcard') {
+    els.cardTouchZone.addEventListener('touchmove', (e) => {
+      const curX = e.changedTouches[0].screenX;
+      const curY = e.changedTouches[0].screenY;
+      if (Math.abs(curX - touchStartX) > 20 && Math.abs(curX - touchStartX) > Math.abs(curY - touchStartY)) {
+        hasSwiped = true;
+      }
+    }, { passive: true });
+
+    els.cardTouchZone.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (diffX < 0) {
+          nextCard(); // Swipe left
+        } else {
+          prevCard(); // Swipe right
+        }
+      }
+    }, { passive: true });
+
+    // Keyboard
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT') return;
+      if (currentView === 'card') {
         if (e.code === 'Space') {
           e.preventDefault();
-          toggleCardFlip();
+          toggleFlip();
         } else if (e.code === 'ArrowRight') {
           e.preventDefault();
           nextCard();
@@ -938,18 +546,10 @@
         } else if (e.code === 'KeyA') {
           e.preventDefault();
           playPhraseAudio(filteredPhrases[currentIndex]);
-        } else if (e.code === 'KeyM') {
-          e.preventDefault();
-          const p = filteredPhrases[currentIndex];
-          if (p) markMastered(p.id);
-        } else if (e.code === 'KeyS') {
-          e.preventDefault();
-          shuffleCards();
         }
       }
     });
   }
 
-  // Start app
   document.addEventListener('DOMContentLoaded', init);
 })();

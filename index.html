@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Common Phrases — English Flashcards with Audio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <!-- Drawer Toggle Button -->
+        <button class="drawer-trigger-btn" id="btn-open-drawer" aria-label="Open Categories Drawer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+          <span class="drawer-trigger-text">Categories</span>
+          <span class="active-category-indicator" id="header-cat-pill">All</span>
+        </button>
+
+        <div class="brand-wrapper">
+          <div class="brand-logo" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <span class="brand-title">Common Phrases</span>
+        </div>
+      </div>
+
+      <!-- View Mode Tabs -->
+      <nav class="view-tabs" role="tablist">
+        <button class="tab-btn active" data-view="flashcard" role="tab" aria-selected="true">
+          <span class="tab-icon">🎴</span>
+          <span class="tab-label">Cards</span>
+        </button>
+        <button class="tab-btn" data-view="browse" role="tab" aria-selected="false">
+          <span class="tab-icon">📋</span>
+          <span class="tab-label">All (<span id="total-badge-count">200</span>)</span>
+        </button>
+        <button class="tab-btn" data-view="quiz" role="tab" aria-selected="false">
+          <span class="tab-icon">🎯</span>
+          <span class="tab-label">Quiz</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Categories Slide-out Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="categories-drawer" id="categories-drawer" aria-label="Categories Drawer">
+    <div class="drawer-header">
+      <div class="drawer-header-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span>Categories & Filters</span>
+      </div>
+      <button class="drawer-close-btn" id="btn-close-drawer" aria-label="Close drawer">✕</button>
+    </div>
+
+    <!-- Search Box inside Drawer -->
+    <div class="drawer-search-wrapper">
+      <div class="search-box-wrapper">
+        <span class="search-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
+        <input type="text" id="search-input" class="search-input" placeholder="Search phrases in English or Uzbek..." autocomplete="off">
+        <button id="search-clear" class="search-clear-btn" title="Clear search">✕</button>
+      </div>
+    </div>
+
+    <!-- Drawer Scrollable Content -->
+    <div class="drawer-scroll-body">
+      <!-- Main Module Filters -->
+      <div class="drawer-section">
+        <div class="drawer-section-title">Sections</div>
+        <div class="drawer-module-list">
+          <button class="drawer-item active" data-module="all">
+            <span class="drawer-item-icon">📚</span>
+            <span class="drawer-item-label">All Common Phrases</span>
+            <span class="drawer-item-count">200</span>
+          </button>
+          <button class="drawer-item" data-module="curator">
+            <span class="drawer-item-icon">💬</span>
+            <span class="drawer-item-label">Classroom Phrases (A1–A2)</span>
+            <span class="drawer-item-count">140</span>
+          </button>
+          <button class="drawer-item" data-module="attendance">
+            <span class="drawer-item-icon">⏱️</span>
+            <span class="drawer-item-label">Attendance & Late</span>
+            <span class="drawer-item-count">60</span>
+          </button>
+          <button class="drawer-item" data-module="mastered">
+            <span class="drawer-item-icon">⭐</span>
+            <span class="drawer-item-label">Mastered</span>
+            <span class="drawer-item-count" id="mastered-count">0</span>
+          </button>
+          <button class="drawer-item" data-module="review">
+            <span class="drawer-item-icon">⚠️</span>
+            <span class="drawer-item-label">Needs Review</span>
+            <span class="drawer-item-count" id="review-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Items List -->
+      <div class="drawer-section">
+        <div class="drawer-section-title">Categories</div>
+        <div class="drawer-category-list" id="drawer-category-list">
+          <!-- Rendered via JavaScript -->
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Application Content -->
+  <main class="main-content">
+
+    <!-- ====================================================================
+         VIEW 1: Flashcard Mode
+         ==================================================================== -->
+    <section id="view-flashcard" class="flashcard-section" role="region" aria-label="Flashcard Study Mode">
+      
+      <!-- Top Card Meta Bar -->
+      <div class="card-stats-bar">
+        <div class="card-counter-box">
+          <span class="card-counter-current" id="current-card-num">1</span>
+          <span class="card-counter-divider">/</span>
+          <span class="card-counter-total" id="filtered-total-num">200</span>
+        </div>
+        <div class="card-badges-top">
+          <button class="card-cat-click-badge" id="active-category-display" title="Click to open categories drawer">
+            Greetings
+          </button>
+          <span id="active-mastery-chip" class="status-badge-chip learning">Learning</span>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div id="flashcard-progress" class="progress-fill" style="width: 0.5%;"></div>
+      </div>
+
+      <!-- 3D Flashcard Container with Touch Swipe -->
+      <div class="flashcard-wrapper" id="card-wrapper" tabindex="0" role="button" aria-label="Flashcard. Tap to flip or swipe left/right.">
+        <div class="flashcard" id="flashcard">
+          
+          <!-- Card Front: English -->
+          <div class="card-face front">
+            <div class="card-face-header">
+              <span class="card-category-tag" id="card-front-cat">Greetings</span>
+              <span class="card-number-tag" id="card-front-num">#1</span>
+            </div>
+
+            <div class="card-face-body">
+              <div class="card-phrase-en" id="card-front-text">Good morning, everyone.</div>
+              
+              <button class="audio-play-large-btn" id="btn-play-card" title="Listen Audio">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+                <span>Listen Audio</span>
+                <div class="audio-wave" id="audio-wave-front">
+                  <div class="audio-bar"></div>
+                  <div class="audio-bar"></div>
+                  <div class="audio-bar"></div>
+                  <div class="audio-bar"></div>
+                </div>
+              </button>
+            </div>
+
+            <div class="card-face-footer">
+              <span class="card-tap-cue">Tap card to see Uzbek</span>
+            </div>
+          </div>
+
+          <!-- Card Back: Uzbek Meaning -->
+          <div class="card-face back">
+            <div class="card-face-header">
+              <span class="card-category-tag" id="card-back-cat">O'zbekcha</span>
+              <span class="card-number-tag" id="card-back-num">#1</span>
+            </div>
+
+            <div class="card-face-body">
+              <div class="card-phrase-uz" id="card-back-text">Hammaga xayrli tong.</div>
+              
+              <button class="audio-play-large-btn" id="btn-play-card-back" title="Repeat Audio">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+                <span>Repeat English</span>
+                <div class="audio-wave" id="audio-wave-back">
+                  <div class="audio-bar"></div>
+                  <div class="audio-bar"></div>
+                  <div class="audio-bar"></div>
+                  <div class="audio-bar"></div>
+                </div>
+              </button>
+            </div>
+
+            <div class="card-face-footer">
+              <div class="mastery-actions">
+                <button class="btn-mastery master" id="btn-mark-master">✓ Mastered</button>
+                <button class="btn-mastery review" id="btn-mark-review">⚠️ Review Later</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Main Navigation Buttons (Mobile-Optimized Touch Bar) -->
+      <div class="card-nav-controls">
+        <button class="nav-btn" id="btn-prev-card" title="Previous Card">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          <span>Prev</span>
+        </button>
+
+        <button class="nav-btn primary" id="btn-flip-card" title="Flip Card">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+          <span>Flip Card</span>
+        </button>
+
+        <button class="nav-btn" id="btn-next-card" title="Next Card">
+          <span>Next</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Aux Controls (Speed, Autoplay, Shuffle) -->
+      <div class="card-aux-controls">
+        <button class="aux-btn" id="btn-shuffle" title="Shuffle Cards">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 3 21 3 21 8"></polyline>
+            <line x1="4" y1="20" x2="21" y2="3"></line>
+            <polyline points="21 16 21 21 16 21"></polyline>
+            <line x1="15" y1="15" x2="21" y2="21"></line>
+            <line x1="4" y1="4" x2="9" y2="9"></line>
+          </svg>
+          <span>Shuffle</span>
+        </button>
+
+        <div class="aux-divider"></div>
+
+        <button class="aux-btn" id="btn-autoplay" title="Auto-advance cards">
+          <span id="autoplay-icon">▶</span>
+          <span id="autoplay-text">Autoplay</span>
+        </button>
+
+        <div class="aux-divider"></div>
+
+        <!-- Speed selector -->
+        <div class="speed-selector" id="speed-selector">
+          <button class="speed-opt" data-speed="0.8">0.8x</button>
+          <button class="speed-opt active" data-speed="1.0">1.0x</button>
+          <button class="speed-opt" data-speed="1.2">1.2x</button>
+        </div>
+
+        <div class="aux-divider"></div>
+
+        <!-- Auto-speak -->
+        <button class="aux-btn active" id="btn-auto-speak" title="Auto-play audio when opening a card">
+          <span>🔊 Auto</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 2: Browse Grid Mode
+         ==================================================================== -->
+    <section id="view-browse" class="browse-section" style="display: none;" role="region" aria-label="Browse All Phrases">
+      <div class="browse-header">
+        <div class="browse-count-label">
+          Showing <span id="browse-showing-count">200</span> phrases
+        </div>
+        <div>
+          <button class="nav-btn" id="btn-toggle-all-translations">
+            <span>👁️</span> Toggle Translations
+          </button>
+        </div>
+      </div>
+
+      <div class="browse-grid" id="browse-grid">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 3: Practice Quiz Mode
+         ==================================================================== -->
+    <section id="view-quiz" class="quiz-section" style="display: none;" role="region" aria-label="Interactive Quiz Mode">
+      <div class="quiz-card">
+        <div class="quiz-header">
+          <span class="card-category-tag" id="quiz-cat-badge">Practice Quiz</span>
+          <span class="quiz-score-pill" id="quiz-score-pill">Score: 0 / 0</span>
+        </div>
+
+        <div class="quiz-prompt-box">
+          <div class="quiz-question-en" id="quiz-question-en">Good morning, everyone.</div>
+          
+          <button class="audio-play-large-btn" id="btn-quiz-audio" title="Listen to question">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            <span>Play Audio</span>
+          </button>
+        </div>
+
+        <div class="quiz-options-list" id="quiz-options-list">
+          <!-- 4 Multiple choice buttons injected here -->
+        </div>
+
+        <div class="quiz-feedback">
+          <div class="quiz-feedback-text" id="quiz-feedback-text">Choose the correct translation:</div>
+          <button class="nav-btn primary" id="btn-quiz-next" style="display: none;">Next Question →</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Action saved</div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

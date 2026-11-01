@@ -1,0 +1,1802 @@
+[
+  {
+    "id": "curator_1",
+    "number": 1,
+    "section": "Common Phrases (A1–A2)",
+    "category": "A. Greetings (Salomlashish)",
+    "english": "Good morning, everyone.",
+    "uzbek": "Hammaga xayrli tong.",
+    "audio": "audio/curator_1.mp3"
+  },
+  {
+    "id": "curator_2",
+    "number": 2,
+    "section": "Common Phrases (A1–A2)",
+    "category": "A. Greetings (Salomlashish)",
+    "english": "Good afternoon, everyone.",
+    "uzbek": "Hammaga xayrli kun.",
+    "audio": "audio/curator_2.mp3"
+  },
+  {
+    "id": "curator_3",
+    "number": 3,
+    "section": "Common Phrases (A1–A2)",
+    "category": "A. Greetings (Salomlashish)",
+    "english": "Good evening, everyone.",
+    "uzbek": "Hammaga xayrli kech.",
+    "audio": "audio/curator_3.mp3"
+  },
+  {
+    "id": "curator_4",
+    "number": 4,
+    "section": "Common Phrases (A1–A2)",
+    "category": "A. Greetings (Salomlashish)",
+    "english": "Hello, students.",
+    "uzbek": "Salom, o'quvchilar.",
+    "audio": "audio/curator_4.mp3"
+  },
+  {
+    "id": "curator_5",
+    "number": 5,
+    "section": "Common Phrases (A1–A2)",
+    "category": "A. Greetings (Salomlashish)",
+    "english": "Hi, everyone.",
+    "uzbek": "Salom, hammaga.",
+    "audio": "audio/curator_5.mp3"
+  },
+  {
+    "id": "curator_6",
+    "number": 6,
+    "section": "Common Phrases (A1–A2)",
+    "category": "A. Greetings (Salomlashish)",
+    "english": "How are you today?",
+    "uzbek": "Bugun qalaysizlar?",
+    "audio": "audio/curator_6.mp3"
+  },
+  {
+    "id": "curator_7",
+    "number": 7,
+    "section": "Common Phrases (A1–A2)",
+    "category": "A. Greetings (Salomlashish)",
+    "english": "I hope you are fine.",
+    "uzbek": "Umid qilamanki, yaxshisizlar.",
+    "audio": "audio/curator_7.mp3"
+  },
+  {
+    "id": "curator_8",
+    "number": 8,
+    "section": "Common Phrases (A1–A2)",
+    "category": "A. Greetings (Salomlashish)",
+    "english": "Welcome to the class.",
+    "uzbek": "Darsga xush kelibsiz.",
+    "audio": "audio/curator_8.mp3"
+  },
+  {
+    "id": "curator_9",
+    "number": 9,
+    "section": "Common Phrases (A1–A2)",
+    "category": "A. Greetings (Salomlashish)",
+    "english": "Welcome back.",
+    "uzbek": "Qaytib kelganingiz bilan.",
+    "audio": "audio/curator_9.mp3"
+  },
+  {
+    "id": "curator_10",
+    "number": 10,
+    "section": "Common Phrases (A1–A2)",
+    "category": "A. Greetings (Salomlashish)",
+    "english": "It is nice to see you.",
+    "uzbek": "Sizlarni ko'rganimdan xursandman.",
+    "audio": "audio/curator_10.mp3"
+  },
+  {
+    "id": "curator_11",
+    "number": 11,
+    "section": "Common Phrases (A1–A2)",
+    "category": "B. Starting the Lesson (Darsni boshlash)",
+    "english": "Everyone, please sit down.",
+    "uzbek": "Hamma, iltimos, o'tiring.",
+    "audio": "audio/curator_11.mp3"
+  },
+  {
+    "id": "curator_12",
+    "number": 12,
+    "section": "Common Phrases (A1–A2)",
+    "category": "B. Starting the Lesson (Darsni boshlash)",
+    "english": "Students, please stand up.",
+    "uzbek": "O'quvchilar, iltimos, turing.",
+    "audio": "audio/curator_12.mp3"
+  },
+  {
+    "id": "curator_13",
+    "number": 13,
+    "section": "Common Phrases (A1–A2)",
+    "category": "B. Starting the Lesson (Darsni boshlash)",
+    "english": "Let's begin our lesson.",
+    "uzbek": "Keling, darsni boshlaymiz.",
+    "audio": "audio/curator_13.mp3"
+  },
+  {
+    "id": "curator_14",
+    "number": 14,
+    "section": "Common Phrases (A1–A2)",
+    "category": "B. Starting the Lesson (Darsni boshlash)",
+    "english": "Today we will study English.",
+    "uzbek": "Bugun biz ingliz tilini o'rganamiz.",
+    "audio": "audio/curator_14.mp3"
+  },
+  {
+    "id": "curator_15",
+    "number": 15,
+    "section": "Common Phrases (A1–A2)",
+    "category": "B. Starting the Lesson (Darsni boshlash)",
+    "english": "Today we have a new lesson.",
+    "uzbek": "Bugun bizda yangi dars bor.",
+    "audio": "audio/curator_15.mp3"
+  },
+  {
+    "id": "curator_16",
+    "number": 16,
+    "section": "Common Phrases (A1–A2)",
+    "category": "B. Starting the Lesson (Darsni boshlash)",
+    "english": "Please get ready.",
+    "uzbek": "Iltimos, tayyor bo'ling.",
+    "audio": "audio/curator_16.mp3"
+  },
+  {
+    "id": "curator_17",
+    "number": 17,
+    "section": "Common Phrases (A1–A2)",
+    "category": "B. Starting the Lesson (Darsni boshlash)",
+    "english": "Take your seats.",
+    "uzbek": "Joylaringizni egallang.",
+    "audio": "audio/curator_17.mp3"
+  },
+  {
+    "id": "curator_18",
+    "number": 18,
+    "section": "Common Phrases (A1–A2)",
+    "category": "B. Starting the Lesson (Darsni boshlash)",
+    "english": "Open your notebooks.",
+    "uzbek": "Daftarlaringizni oching.",
+    "audio": "audio/curator_18.mp3"
+  },
+  {
+    "id": "curator_19",
+    "number": 19,
+    "section": "Common Phrases (A1–A2)",
+    "category": "B. Starting the Lesson (Darsni boshlash)",
+    "english": "Open your books.",
+    "uzbek": "Kitoblaringizni oching.",
+    "audio": "audio/curator_19.mp3"
+  },
+  {
+    "id": "curator_20",
+    "number": 20,
+    "section": "Common Phrases (A1–A2)",
+    "category": "B. Starting the Lesson (Darsni boshlash)",
+    "english": "Close your books.",
+    "uzbek": "Kitoblaringizni yoping.",
+    "audio": "audio/curator_20.mp3"
+  },
+  {
+    "id": "curator_21",
+    "number": 21,
+    "section": "Common Phrases (A1–A2)",
+    "category": "C. Classroom Instructions (Sinfdagi ko'rsatmalar)",
+    "english": "Listen carefully.",
+    "uzbek": "Diqqat bilan tinglang.",
+    "audio": "audio/curator_21.mp3"
+  },
+  {
+    "id": "curator_22",
+    "number": 22,
+    "section": "Common Phrases (A1–A2)",
+    "category": "C. Classroom Instructions (Sinfdagi ko'rsatmalar)",
+    "english": "Look at the board.",
+    "uzbek": "Doskaga qarang.",
+    "audio": "audio/curator_22.mp3"
+  },
+  {
+    "id": "curator_23",
+    "number": 23,
+    "section": "Common Phrases (A1–A2)",
+    "category": "C. Classroom Instructions (Sinfdagi ko'rsatmalar)",
+    "english": "Look at me.",
+    "uzbek": "Menga qarang.",
+    "audio": "audio/curator_23.mp3"
+  },
+  {
+    "id": "curator_24",
+    "number": 24,
+    "section": "Common Phrases (A1–A2)",
+    "category": "C. Classroom Instructions (Sinfdagi ko'rsatmalar)",
+    "english": "Repeat after me.",
+    "uzbek": "Mendan keyin takrorlang.",
+    "audio": "audio/curator_24.mp3"
+  },
+  {
+    "id": "curator_25",
+    "number": 25,
+    "section": "Common Phrases (A1–A2)",
+    "category": "C. Classroom Instructions (Sinfdagi ko'rsatmalar)",
+    "english": "Read this sentence.",
+    "uzbek": "Shu gapni o'qing.",
+    "audio": "audio/curator_25.mp3"
+  },
+  {
+    "id": "curator_26",
+    "number": 26,
+    "section": "Common Phrases (A1–A2)",
+    "category": "C. Classroom Instructions (Sinfdagi ko'rsatmalar)",
+    "english": "Read aloud.",
+    "uzbek": "Ovoz chiqarib o'qing.",
+    "audio": "audio/curator_26.mp3"
+  },
+  {
+    "id": "curator_27",
+    "number": 27,
+    "section": "Common Phrases (A1–A2)",
+    "category": "C. Classroom Instructions (Sinfdagi ko'rsatmalar)",
+    "english": "Write your name.",
+    "uzbek": "Ismingizni yozing.",
+    "audio": "audio/curator_27.mp3"
+  },
+  {
+    "id": "curator_28",
+    "number": 28,
+    "section": "Common Phrases (A1–A2)",
+    "category": "C. Classroom Instructions (Sinfdagi ko'rsatmalar)",
+    "english": "Write the date.",
+    "uzbek": "Sanani yozing.",
+    "audio": "audio/curator_28.mp3"
+  },
+  {
+    "id": "curator_29",
+    "number": 29,
+    "section": "Common Phrases (A1–A2)",
+    "category": "C. Classroom Instructions (Sinfdagi ko'rsatmalar)",
+    "english": "Write the answer.",
+    "uzbek": "Javobni yozing.",
+    "audio": "audio/curator_29.mp3"
+  },
+  {
+    "id": "curator_30",
+    "number": 30,
+    "section": "Common Phrases (A1–A2)",
+    "category": "C. Classroom Instructions (Sinfdagi ko'rsatmalar)",
+    "english": "Please write neatly.",
+    "uzbek": "Iltimos, chiroyli yozing.",
+    "audio": "audio/curator_30.mp3"
+  },
+  {
+    "id": "curator_31",
+    "number": 31,
+    "section": "Common Phrases (A1–A2)",
+    "category": "D. Attendance (Davomat)",
+    "english": "I will check attendance.",
+    "uzbek": "Men davomatni tekshiraman.",
+    "audio": "audio/curator_31.mp3"
+  },
+  {
+    "id": "curator_32",
+    "number": 32,
+    "section": "Common Phrases (A1–A2)",
+    "category": "D. Attendance (Davomat)",
+    "english": "Is everyone here?",
+    "uzbek": "Hamma shu yerdami?",
+    "audio": "audio/curator_32.mp3"
+  },
+  {
+    "id": "curator_33",
+    "number": 33,
+    "section": "Common Phrases (A1–A2)",
+    "category": "D. Attendance (Davomat)",
+    "english": "Who is absent today?",
+    "uzbek": "Bugun kim yo'q?",
+    "audio": "audio/curator_33.mp3"
+  },
+  {
+    "id": "curator_34",
+    "number": 34,
+    "section": "Common Phrases (A1–A2)",
+    "category": "D. Attendance (Davomat)",
+    "english": "Raise your hand if you are here.",
+    "uzbek": "Shu yerda bo'lsangiz, qo'lingizni ko'taring.",
+    "audio": "audio/curator_34.mp3"
+  },
+  {
+    "id": "curator_35",
+    "number": 35,
+    "section": "Common Phrases (A1–A2)",
+    "category": "D. Attendance (Davomat)",
+    "english": "Thank you.",
+    "uzbek": "Rahmat.",
+    "audio": "audio/curator_35.mp3"
+  },
+  {
+    "id": "curator_36",
+    "number": 36,
+    "section": "Common Phrases (A1–A2)",
+    "category": "D. Attendance (Davomat)",
+    "english": "Please answer \"Here\".",
+    "uzbek": "Iltimos, \"Here\" deb javob bering.",
+    "audio": "audio/curator_36.mp3"
+  },
+  {
+    "id": "curator_37",
+    "number": 37,
+    "section": "Common Phrases (A1–A2)",
+    "category": "D. Attendance (Davomat)",
+    "english": "Are you ready?",
+    "uzbek": "Tayyormisizlar?",
+    "audio": "audio/curator_37.mp3"
+  },
+  {
+    "id": "curator_38",
+    "number": 38,
+    "section": "Common Phrases (A1–A2)",
+    "category": "D. Attendance (Davomat)",
+    "english": "Let's start now.",
+    "uzbek": "Endi boshlaymiz.",
+    "audio": "audio/curator_38.mp3"
+  },
+  {
+    "id": "curator_39",
+    "number": 39,
+    "section": "Common Phrases (A1–A2)",
+    "category": "D. Attendance (Davomat)",
+    "english": "Come in, please.",
+    "uzbek": "Kiring, iltimos.",
+    "audio": "audio/curator_39.mp3"
+  },
+  {
+    "id": "curator_40",
+    "number": 40,
+    "section": "Common Phrases (A1–A2)",
+    "category": "D. Attendance (Davomat)",
+    "english": "Please close the door.",
+    "uzbek": "Eshikni yoping, iltimos.",
+    "audio": "audio/curator_40.mp3"
+  },
+  {
+    "id": "curator_41",
+    "number": 41,
+    "section": "Common Phrases (A1–A2)",
+    "category": "E. Classroom Discipline (Intizom)",
+    "english": "Please be quiet.",
+    "uzbek": "Iltimos, jim bo'ling.",
+    "audio": "audio/curator_41.mp3"
+  },
+  {
+    "id": "curator_42",
+    "number": 42,
+    "section": "Common Phrases (A1–A2)",
+    "category": "E. Classroom Discipline (Intizom)",
+    "english": "Don't talk.",
+    "uzbek": "Gaplashmang.",
+    "audio": "audio/curator_42.mp3"
+  },
+  {
+    "id": "curator_43",
+    "number": 43,
+    "section": "Common Phrases (A1–A2)",
+    "category": "E. Classroom Discipline (Intizom)",
+    "english": "Please listen.",
+    "uzbek": "Iltimos, tinglang.",
+    "audio": "audio/curator_43.mp3"
+  },
+  {
+    "id": "curator_44",
+    "number": 44,
+    "section": "Common Phrases (A1–A2)",
+    "category": "E. Classroom Discipline (Intizom)",
+    "english": "Please pay attention.",
+    "uzbek": "Iltimos, diqqat qiling.",
+    "audio": "audio/curator_44.mp3"
+  },
+  {
+    "id": "curator_45",
+    "number": 45,
+    "section": "Common Phrases (A1–A2)",
+    "category": "E. Classroom Discipline (Intizom)",
+    "english": "Please stop talking.",
+    "uzbek": "Gaplashishni to'xtating.",
+    "audio": "audio/curator_45.mp3"
+  },
+  {
+    "id": "curator_46",
+    "number": 46,
+    "section": "Common Phrases (A1–A2)",
+    "category": "E. Classroom Discipline (Intizom)",
+    "english": "Be polite.",
+    "uzbek": "Xushmuomala bo'ling.",
+    "audio": "audio/curator_46.mp3"
+  },
+  {
+    "id": "curator_47",
+    "number": 47,
+    "section": "Common Phrases (A1–A2)",
+    "category": "E. Classroom Discipline (Intizom)",
+    "english": "Be kind to your friends.",
+    "uzbek": "Do'stlaringizga mehribon bo'ling.",
+    "audio": "audio/curator_47.mp3"
+  },
+  {
+    "id": "curator_48",
+    "number": 48,
+    "section": "Common Phrases (A1–A2)",
+    "category": "E. Classroom Discipline (Intizom)",
+    "english": "Respect your classmates.",
+    "uzbek": "Sinfdoshlaringizni hurmat qiling.",
+    "audio": "audio/curator_48.mp3"
+  },
+  {
+    "id": "curator_49",
+    "number": 49,
+    "section": "Common Phrases (A1–A2)",
+    "category": "E. Classroom Discipline (Intizom)",
+    "english": "Respect your teachers.",
+    "uzbek": "O'qituvchilaringizni hurmat qiling.",
+    "audio": "audio/curator_49.mp3"
+  },
+  {
+    "id": "curator_50",
+    "number": 50,
+    "section": "Common Phrases (A1–A2)",
+    "category": "E. Classroom Discipline (Intizom)",
+    "english": "Please wait your turn.",
+    "uzbek": "Navbatingizni kuting.",
+    "audio": "audio/curator_50.mp3"
+  },
+  {
+    "id": "curator_51",
+    "number": 51,
+    "section": "Common Phrases (A1–A2)",
+    "category": "F. Asking Questions (Savollar)",
+    "english": "Do you understand?",
+    "uzbek": "Tushundingizmi?",
+    "audio": "audio/curator_51.mp3"
+  },
+  {
+    "id": "curator_52",
+    "number": 52,
+    "section": "Common Phrases (A1–A2)",
+    "category": "F. Asking Questions (Savollar)",
+    "english": "Do you have any questions?",
+    "uzbek": "Savollaringiz bormi?",
+    "audio": "audio/curator_52.mp3"
+  },
+  {
+    "id": "curator_53",
+    "number": 53,
+    "section": "Common Phrases (A1–A2)",
+    "category": "F. Asking Questions (Savollar)",
+    "english": "Who knows the answer?",
+    "uzbek": "Javobni kim biladi?",
+    "audio": "audio/curator_53.mp3"
+  },
+  {
+    "id": "curator_54",
+    "number": 54,
+    "section": "Common Phrases (A1–A2)",
+    "category": "F. Asking Questions (Savollar)",
+    "english": "Can you answer?",
+    "uzbek": "Javob bera olasizmi?",
+    "audio": "audio/curator_54.mp3"
+  },
+  {
+    "id": "curator_55",
+    "number": 55,
+    "section": "Common Phrases (A1–A2)",
+    "category": "F. Asking Questions (Savollar)",
+    "english": "Can you read?",
+    "uzbek": "O'qiy olasizmi?",
+    "audio": "audio/curator_55.mp3"
+  },
+  {
+    "id": "curator_56",
+    "number": 56,
+    "section": "Common Phrases (A1–A2)",
+    "category": "F. Asking Questions (Savollar)",
+    "english": "Can you write?",
+    "uzbek": "Yoza olasizmi?",
+    "audio": "audio/curator_56.mp3"
+  },
+  {
+    "id": "curator_57",
+    "number": 57,
+    "section": "Common Phrases (A1–A2)",
+    "category": "F. Asking Questions (Savollar)",
+    "english": "Can you help your friend?",
+    "uzbek": "Do'stingizga yordam bera olasizmi?",
+    "audio": "audio/curator_57.mp3"
+  },
+  {
+    "id": "curator_58",
+    "number": 58,
+    "section": "Common Phrases (A1–A2)",
+    "category": "F. Asking Questions (Savollar)",
+    "english": "Who wants to answer?",
+    "uzbek": "Kim javob bermoqchi?",
+    "audio": "audio/curator_58.mp3"
+  },
+  {
+    "id": "curator_59",
+    "number": 59,
+    "section": "Common Phrases (A1–A2)",
+    "category": "F. Asking Questions (Savollar)",
+    "english": "Please raise your hand.",
+    "uzbek": "Iltimos, qo'lingizni ko'taring.",
+    "audio": "audio/curator_59.mp3"
+  },
+  {
+    "id": "curator_60",
+    "number": 60,
+    "section": "Common Phrases (A1–A2)",
+    "category": "F. Asking Questions (Savollar)",
+    "english": "Speak louder, please.",
+    "uzbek": "Balandroq gapiring, iltimos.",
+    "audio": "audio/curator_60.mp3"
+  },
+  {
+    "id": "curator_61",
+    "number": 61,
+    "section": "Common Phrases (A1–A2)",
+    "category": "G. Encouragement (Rag'batlantirish)",
+    "english": "Good job!",
+    "uzbek": "Barakalla!",
+    "audio": "audio/curator_61.mp3"
+  },
+  {
+    "id": "curator_62",
+    "number": 62,
+    "section": "Common Phrases (A1–A2)",
+    "category": "G. Encouragement (Rag'batlantirish)",
+    "english": "Very good!",
+    "uzbek": "Juda yaxshi!",
+    "audio": "audio/curator_62.mp3"
+  },
+  {
+    "id": "curator_63",
+    "number": 63,
+    "section": "Common Phrases (A1–A2)",
+    "category": "G. Encouragement (Rag'batlantirish)",
+    "english": "Excellent!",
+    "uzbek": "Ajoyib!",
+    "audio": "audio/curator_63.mp3"
+  },
+  {
+    "id": "curator_64",
+    "number": 64,
+    "section": "Common Phrases (A1–A2)",
+    "category": "G. Encouragement (Rag'batlantirish)",
+    "english": "Well done!",
+    "uzbek": "Juda yaxshi bajardingiz!",
+    "audio": "audio/curator_64.mp3"
+  },
+  {
+    "id": "curator_65",
+    "number": 65,
+    "section": "Common Phrases (A1–A2)",
+    "category": "G. Encouragement (Rag'batlantirish)",
+    "english": "Keep trying.",
+    "uzbek": "Harakat qilishda davom eting.",
+    "audio": "audio/curator_65.mp3"
+  },
+  {
+    "id": "curator_66",
+    "number": 66,
+    "section": "Common Phrases (A1–A2)",
+    "category": "G. Encouragement (Rag'batlantirish)",
+    "english": "Don't worry.",
+    "uzbek": "Xavotir olmang.",
+    "audio": "audio/curator_66.mp3"
+  },
+  {
+    "id": "curator_67",
+    "number": 67,
+    "section": "Common Phrases (A1–A2)",
+    "category": "G. Encouragement (Rag'batlantirish)",
+    "english": "You can do it.",
+    "uzbek": "Siz buni qila olasiz.",
+    "audio": "audio/curator_67.mp3"
+  },
+  {
+    "id": "curator_68",
+    "number": 68,
+    "section": "Common Phrases (A1–A2)",
+    "category": "G. Encouragement (Rag'batlantirish)",
+    "english": "Try again.",
+    "uzbek": "Yana urinib ko'ring.",
+    "audio": "audio/curator_68.mp3"
+  },
+  {
+    "id": "curator_69",
+    "number": 69,
+    "section": "Common Phrases (A1–A2)",
+    "category": "G. Encouragement (Rag'batlantirish)",
+    "english": "Good answer.",
+    "uzbek": "Yaxshi javob.",
+    "audio": "audio/curator_69.mp3"
+  },
+  {
+    "id": "curator_70",
+    "number": 70,
+    "section": "Common Phrases (A1–A2)",
+    "category": "G. Encouragement (Rag'batlantirish)",
+    "english": "Thank you for your answer.",
+    "uzbek": "Javobingiz uchun rahmat.",
+    "audio": "audio/curator_70.mp3"
+  },
+  {
+    "id": "curator_71",
+    "number": 71,
+    "section": "Common Phrases (A1–A2)",
+    "category": "H. Encouragement - Part 2 (Davomi)",
+    "english": "Everyone, do your best.",
+    "uzbek": "Hamma, qo'lingizdan kelganicha harakat qiling.",
+    "audio": "audio/curator_71.mp3"
+  },
+  {
+    "id": "curator_72",
+    "number": 72,
+    "section": "Common Phrases (A1–A2)",
+    "category": "H. Encouragement - Part 2 (Davomi)",
+    "english": "You are doing well.",
+    "uzbek": "Siz yaxshi ishlayapsiz.",
+    "audio": "audio/curator_72.mp3"
+  },
+  {
+    "id": "curator_73",
+    "number": 73,
+    "section": "Common Phrases (A1–A2)",
+    "category": "H. Encouragement - Part 2 (Davomi)",
+    "english": "I am proud of you.",
+    "uzbek": "Men siz bilan faxrlanaman.",
+    "audio": "audio/curator_73.mp3"
+  },
+  {
+    "id": "curator_74",
+    "number": 74,
+    "section": "Common Phrases (A1–A2)",
+    "category": "H. Encouragement - Part 2 (Davomi)",
+    "english": "Keep learning.",
+    "uzbek": "O'rganishda davom eting.",
+    "audio": "audio/curator_74.mp3"
+  },
+  {
+    "id": "curator_75",
+    "number": 75,
+    "section": "Common Phrases (A1–A2)",
+    "category": "H. Encouragement - Part 2 (Davomi)",
+    "english": "Don't give up.",
+    "uzbek": "Taslim bo'lmang.",
+    "audio": "audio/curator_75.mp3"
+  },
+  {
+    "id": "curator_76",
+    "number": 76,
+    "section": "Common Phrases (A1–A2)",
+    "category": "H. Encouragement - Part 2 (Davomi)",
+    "english": "You can learn it.",
+    "uzbek": "Siz buni o'rganishingiz mumkin.",
+    "audio": "audio/curator_76.mp3"
+  },
+  {
+    "id": "curator_77",
+    "number": 77,
+    "section": "Common Phrases (A1–A2)",
+    "category": "H. Encouragement - Part 2 (Davomi)",
+    "english": "I believe in you.",
+    "uzbek": "Men sizga ishonaman.",
+    "audio": "audio/curator_77.mp3"
+  },
+  {
+    "id": "curator_78",
+    "number": 78,
+    "section": "Common Phrases (A1–A2)",
+    "category": "H. Encouragement - Part 2 (Davomi)",
+    "english": "You are improving every day.",
+    "uzbek": "Siz har kuni yaxshilanayapsiz.",
+    "audio": "audio/curator_78.mp3"
+  },
+  {
+    "id": "curator_79",
+    "number": 79,
+    "section": "Common Phrases (A1–A2)",
+    "category": "H. Encouragement - Part 2 (Davomi)",
+    "english": "Practice every day.",
+    "uzbek": "Har kuni mashq qiling.",
+    "audio": "audio/curator_79.mp3"
+  },
+  {
+    "id": "curator_80",
+    "number": 80,
+    "section": "Common Phrases (A1–A2)",
+    "category": "H. Encouragement - Part 2 (Davomi)",
+    "english": "Success comes with practice.",
+    "uzbek": "Muvaffaqiyat mashq bilan keladi.",
+    "audio": "audio/curator_80.mp3"
+  },
+  {
+    "id": "curator_81",
+    "number": 81,
+    "section": "Common Phrases (A1–A2)",
+    "category": "I. Giving Instructions (Ko'rsatmalar)",
+    "english": "Please write this sentence.",
+    "uzbek": "Iltimos, shu gapni yozing.",
+    "audio": "audio/curator_81.mp3"
+  },
+  {
+    "id": "curator_82",
+    "number": 82,
+    "section": "Common Phrases (A1–A2)",
+    "category": "I. Giving Instructions (Ko'rsatmalar)",
+    "english": "Please copy the text.",
+    "uzbek": "Iltimos, matnni ko'chiring.",
+    "audio": "audio/curator_82.mp3"
+  },
+  {
+    "id": "curator_83",
+    "number": 83,
+    "section": "Common Phrases (A1–A2)",
+    "category": "I. Giving Instructions (Ko'rsatmalar)",
+    "english": "Please underline the answer.",
+    "uzbek": "Iltimos, javobning tagiga chizing.",
+    "audio": "audio/curator_83.mp3"
+  },
+  {
+    "id": "curator_84",
+    "number": 84,
+    "section": "Common Phrases (A1–A2)",
+    "category": "I. Giving Instructions (Ko'rsatmalar)",
+    "english": "Please circle the correct answer.",
+    "uzbek": "Iltimos, to'g'ri javobni aylana bilan belgilang.",
+    "audio": "audio/curator_84.mp3"
+  },
+  {
+    "id": "curator_85",
+    "number": 85,
+    "section": "Common Phrases (A1–A2)",
+    "category": "I. Giving Instructions (Ko'rsatmalar)",
+    "english": "Please read page ten.",
+    "uzbek": "Iltimos, 10-betni o'qing.",
+    "audio": "audio/curator_85.mp3"
+  },
+  {
+    "id": "curator_86",
+    "number": 86,
+    "section": "Common Phrases (A1–A2)",
+    "category": "I. Giving Instructions (Ko'rsatmalar)",
+    "english": "Please answer question one.",
+    "uzbek": "Iltimos, 1-savolga javob bering.",
+    "audio": "audio/curator_86.mp3"
+  },
+  {
+    "id": "curator_87",
+    "number": 87,
+    "section": "Common Phrases (A1–A2)",
+    "category": "I. Giving Instructions (Ko'rsatmalar)",
+    "english": "Please work alone.",
+    "uzbek": "Iltimos, mustaqil ishlang.",
+    "audio": "audio/curator_87.mp3"
+  },
+  {
+    "id": "curator_88",
+    "number": 88,
+    "section": "Common Phrases (A1–A2)",
+    "category": "I. Giving Instructions (Ko'rsatmalar)",
+    "english": "Please work in pairs.",
+    "uzbek": "Iltimos, juft bo'lib ishlang.",
+    "audio": "audio/curator_88.mp3"
+  },
+  {
+    "id": "curator_89",
+    "number": 89,
+    "section": "Common Phrases (A1–A2)",
+    "category": "I. Giving Instructions (Ko'rsatmalar)",
+    "english": "Please work in groups.",
+    "uzbek": "Iltimos, guruhlarda ishlang.",
+    "audio": "audio/curator_89.mp3"
+  },
+  {
+    "id": "curator_90",
+    "number": 90,
+    "section": "Common Phrases (A1–A2)",
+    "category": "I. Giving Instructions (Ko'rsatmalar)",
+    "english": "Please finish your work.",
+    "uzbek": "Iltimos, ishingizni tugating.",
+    "audio": "audio/curator_90.mp3"
+  },
+  {
+    "id": "curator_91",
+    "number": 91,
+    "section": "Common Phrases (A1–A2)",
+    "category": "J. Checking Understanding (Tushunishni tekshirish)",
+    "english": "Is everything clear?",
+    "uzbek": "Hammasi tushunarlimi?",
+    "audio": "audio/curator_91.mp3"
+  },
+  {
+    "id": "curator_92",
+    "number": 92,
+    "section": "Common Phrases (A1–A2)",
+    "category": "J. Checking Understanding (Tushunishni tekshirish)",
+    "english": "Do you understand this word?",
+    "uzbek": "Bu so'zni tushundingizmi?",
+    "audio": "audio/curator_92.mp3"
+  },
+  {
+    "id": "curator_93",
+    "number": 93,
+    "section": "Common Phrases (A1–A2)",
+    "category": "J. Checking Understanding (Tushunishni tekshirish)",
+    "english": "Can you explain it?",
+    "uzbek": "Uni tushuntira olasizmi?",
+    "audio": "audio/curator_93.mp3"
+  },
+  {
+    "id": "curator_94",
+    "number": 94,
+    "section": "Common Phrases (A1–A2)",
+    "category": "J. Checking Understanding (Tushunishni tekshirish)",
+    "english": "Can you repeat it?",
+    "uzbek": "Uni takrorlay olasizmi?",
+    "audio": "audio/curator_94.mp3"
+  },
+  {
+    "id": "curator_95",
+    "number": 95,
+    "section": "Common Phrases (A1–A2)",
+    "category": "J. Checking Understanding (Tushunishni tekshirish)",
+    "english": "Please say it again.",
+    "uzbek": "Iltimos, yana bir marta ayting.",
+    "audio": "audio/curator_95.mp3"
+  },
+  {
+    "id": "curator_96",
+    "number": 96,
+    "section": "Common Phrases (A1–A2)",
+    "category": "J. Checking Understanding (Tushunishni tekshirish)",
+    "english": "Can you read this?",
+    "uzbek": "Buni o'qiy olasizmi?",
+    "audio": "audio/curator_96.mp3"
+  },
+  {
+    "id": "curator_97",
+    "number": 97,
+    "section": "Common Phrases (A1–A2)",
+    "category": "J. Checking Understanding (Tushunishni tekshirish)",
+    "english": "Who can help?",
+    "uzbek": "Kim yordam bera oladi?",
+    "audio": "audio/curator_97.mp3"
+  },
+  {
+    "id": "curator_98",
+    "number": 98,
+    "section": "Common Phrases (A1–A2)",
+    "category": "J. Checking Understanding (Tushunishni tekshirish)",
+    "english": "Who knows this word?",
+    "uzbek": "Bu so'zni kim biladi?",
+    "audio": "audio/curator_98.mp3"
+  },
+  {
+    "id": "curator_99",
+    "number": 99,
+    "section": "Common Phrases (A1–A2)",
+    "category": "J. Checking Understanding (Tushunishni tekshirish)",
+    "english": "Let's check the answers.",
+    "uzbek": "Javoblarni tekshiramiz.",
+    "audio": "audio/curator_99.mp3"
+  },
+  {
+    "id": "curator_100",
+    "number": 100,
+    "section": "Common Phrases (A1–A2)",
+    "category": "J. Checking Understanding (Tushunishni tekshirish)",
+    "english": "Let's read together.",
+    "uzbek": "Keling, birga o'qiymiz",
+    "audio": "audio/curator_100.mp3"
+  },
+  {
+    "id": "curator_101",
+    "number": 101,
+    "section": "Common Phrases (A1–A2)",
+    "category": "K. Homework (Uyga vazifa)",
+    "english": "This is your homework.",
+    "uzbek": "Bu sizning uyga vazifangiz.",
+    "audio": "audio/curator_101.mp3"
+  },
+  {
+    "id": "curator_102",
+    "number": 102,
+    "section": "Common Phrases (A1–A2)",
+    "category": "K. Homework (Uyga vazifa)",
+    "english": "Please do your homework.",
+    "uzbek": "Iltimos, uyga vazifangizni bajaring.",
+    "audio": "audio/curator_102.mp3"
+  },
+  {
+    "id": "curator_103",
+    "number": 103,
+    "section": "Common Phrases (A1–A2)",
+    "category": "K. Homework (Uyga vazifa)",
+    "english": "Don't forget your homework.",
+    "uzbek": "Uyga vazifangizni unutmang.",
+    "audio": "audio/curator_103.mp3"
+  },
+  {
+    "id": "curator_104",
+    "number": 104,
+    "section": "Common Phrases (A1–A2)",
+    "category": "K. Homework (Uyga vazifa)",
+    "english": "Bring your homework tomorrow.",
+    "uzbek": "Ertaga uyga vazifangizni olib keling.",
+    "audio": "audio/curator_104.mp3"
+  },
+  {
+    "id": "curator_105",
+    "number": 105,
+    "section": "Common Phrases (A1–A2)",
+    "category": "K. Homework (Uyga vazifa)",
+    "english": "Show me your homework.",
+    "uzbek": "Menga uyga vazifangizni ko'rsating.",
+    "audio": "audio/curator_105.mp3"
+  },
+  {
+    "id": "curator_106",
+    "number": 106,
+    "section": "Common Phrases (A1–A2)",
+    "category": "K. Homework (Uyga vazifa)",
+    "english": "Who did the homework?",
+    "uzbek": "Kim uyga vazifani bajardi?",
+    "audio": "audio/curator_106.mp3"
+  },
+  {
+    "id": "curator_107",
+    "number": 107,
+    "section": "Common Phrases (A1–A2)",
+    "category": "K. Homework (Uyga vazifa)",
+    "english": "Who didn't do the homework?",
+    "uzbek": "Kim uyga vazifani bajarmadi?",
+    "audio": "audio/curator_107.mp3"
+  },
+  {
+    "id": "curator_108",
+    "number": 108,
+    "section": "Common Phrases (A1–A2)",
+    "category": "K. Homework (Uyga vazifa)",
+    "english": "Please finish it at home.",
+    "uzbek": "Iltimos, uni uyda tugating.",
+    "audio": "audio/curator_108.mp3"
+  },
+  {
+    "id": "curator_109",
+    "number": 109,
+    "section": "Common Phrases (A1–A2)",
+    "category": "K. Homework (Uyga vazifa)",
+    "english": "Write five sentences.",
+    "uzbek": "Beshta gap yozing.",
+    "audio": "audio/curator_109.mp3"
+  },
+  {
+    "id": "curator_110",
+    "number": 110,
+    "section": "Common Phrases (A1–A2)",
+    "category": "K. Homework (Uyga vazifa)",
+    "english": "Learn these new words.",
+    "uzbek": "Shu yangi so'zlarni yod oling.",
+    "audio": "audio/curator_110.mp3"
+  },
+  {
+    "id": "curator_111",
+    "number": 111,
+    "section": "Common Phrases (A1–A2)",
+    "category": "L. Classroom Management (Sinfni boshqarish)",
+    "english": "Please come to the board.",
+    "uzbek": "Iltimos, doskaga chiqing.",
+    "audio": "audio/curator_111.mp3"
+  },
+  {
+    "id": "curator_112",
+    "number": 112,
+    "section": "Common Phrases (A1–A2)",
+    "category": "L. Classroom Management (Sinfni boshqarish)",
+    "english": "Go back to your seat.",
+    "uzbek": "Joyingizga qayting.",
+    "audio": "audio/curator_112.mp3"
+  },
+  {
+    "id": "curator_113",
+    "number": 113,
+    "section": "Common Phrases (A1–A2)",
+    "category": "L. Classroom Management (Sinfni boshqarish)",
+    "english": "Please clean the board.",
+    "uzbek": "Iltimos, doskani arting.",
+    "audio": "audio/curator_113.mp3"
+  },
+  {
+    "id": "curator_114",
+    "number": 114,
+    "section": "Common Phrases (A1–A2)",
+    "category": "L. Classroom Management (Sinfni boshqarish)",
+    "english": "Please open the window.",
+    "uzbek": "Iltimos, derazani oching.",
+    "audio": "audio/curator_114.mp3"
+  },
+  {
+    "id": "curator_115",
+    "number": 115,
+    "section": "Common Phrases (A1–A2)",
+    "category": "L. Classroom Management (Sinfni boshqarish)",
+    "english": "Please close the window.",
+    "uzbek": "Iltimos, derazani yoping.",
+    "audio": "audio/curator_115.mp3"
+  },
+  {
+    "id": "curator_116",
+    "number": 116,
+    "section": "Common Phrases (A1–A2)",
+    "category": "L. Classroom Management (Sinfni boshqarish)",
+    "english": "Turn on the light.",
+    "uzbek": "Chiroqni yoqing.",
+    "audio": "audio/curator_116.mp3"
+  },
+  {
+    "id": "curator_117",
+    "number": 117,
+    "section": "Common Phrases (A1–A2)",
+    "category": "L. Classroom Management (Sinfni boshqarish)",
+    "english": "Turn off the light.",
+    "uzbek": "Chiroqni o'chiring.",
+    "audio": "audio/curator_117.mp3"
+  },
+  {
+    "id": "curator_118",
+    "number": 118,
+    "section": "Common Phrases (A1–A2)",
+    "category": "L. Classroom Management (Sinfni boshqarish)",
+    "english": "Please keep the classroom clean.",
+    "uzbek": "Iltimos, sinfxonani toza saqlang.",
+    "audio": "audio/curator_118.mp3"
+  },
+  {
+    "id": "curator_119",
+    "number": 119,
+    "section": "Common Phrases (A1–A2)",
+    "category": "L. Classroom Management (Sinfni boshqarish)",
+    "english": "Put your bag under the desk.",
+    "uzbek": "Sumkangizni parta ostiga qo'ying.",
+    "audio": "audio/curator_119.mp3"
+  },
+  {
+    "id": "curator_120",
+    "number": 120,
+    "section": "Common Phrases (A1–A2)",
+    "category": "L. Classroom Management (Sinfni boshqarish)",
+    "english": "Take your pen.",
+    "uzbek": "Ruchkangizni oling.",
+    "audio": "audio/curator_120.mp3"
+  },
+  {
+    "id": "curator_121",
+    "number": 121,
+    "section": "Common Phrases (A1–A2)",
+    "category": "M. Asking Students (O'quvchilardan so'rash)",
+    "english": "What is your name?",
+    "uzbek": "Ismingiz nima?",
+    "audio": "audio/curator_121.mp3"
+  },
+  {
+    "id": "curator_122",
+    "number": 122,
+    "section": "Common Phrases (A1–A2)",
+    "category": "M. Asking Students (O'quvchilardan so'rash)",
+    "english": "How old are you?",
+    "uzbek": "Yoshingiz nechada?",
+    "audio": "audio/curator_122.mp3"
+  },
+  {
+    "id": "curator_123",
+    "number": 123,
+    "section": "Common Phrases (A1–A2)",
+    "category": "M. Asking Students (O'quvchilardan so'rash)",
+    "english": "Where do you live?",
+    "uzbek": "Qayerda yashaysiz?",
+    "audio": "audio/curator_123.mp3"
+  },
+  {
+    "id": "curator_124",
+    "number": 124,
+    "section": "Common Phrases (A1–A2)",
+    "category": "M. Asking Students (O'quvchilardan so'rash)",
+    "english": "What is today's date?",
+    "uzbek": "Bugungi sana qanday?",
+    "audio": "audio/curator_124.mp3"
+  },
+  {
+    "id": "curator_125",
+    "number": 125,
+    "section": "Common Phrases (A1–A2)",
+    "category": "M. Asking Students (O'quvchilardan so'rash)",
+    "english": "What day is it today?",
+    "uzbek": "Bugun haftaning qaysi kuni?",
+    "audio": "audio/curator_125.mp3"
+  },
+  {
+    "id": "curator_126",
+    "number": 126,
+    "section": "Common Phrases (A1–A2)",
+    "category": "M. Asking Students (O'quvchilardan so'rash)",
+    "english": "What time is it?",
+    "uzbek": "Soat necha bo'ldi?",
+    "audio": "audio/curator_126.mp3"
+  },
+  {
+    "id": "curator_127",
+    "number": 127,
+    "section": "Common Phrases (A1–A2)",
+    "category": "M. Asking Students (O'quvchilardan so'rash)",
+    "english": "What lesson do we have now?",
+    "uzbek": "Hozir qaysi dars?",
+    "audio": "audio/curator_127.mp3"
+  },
+  {
+    "id": "curator_128",
+    "number": 128,
+    "section": "Common Phrases (A1–A2)",
+    "category": "M. Asking Students (O'quvchilardan so'rash)",
+    "english": "Who is on duty today?",
+    "uzbek": "Bugun navbatchi kim?",
+    "audio": "audio/curator_128.mp3"
+  },
+  {
+    "id": "curator_129",
+    "number": 129,
+    "section": "Common Phrases (A1–A2)",
+    "category": "M. Asking Students (O'quvchilardan so'rash)",
+    "english": "Who is your partner?",
+    "uzbek": "Juftingiz kim?",
+    "audio": "audio/curator_129.mp3"
+  },
+  {
+    "id": "curator_130",
+    "number": 130,
+    "section": "Common Phrases (A1–A2)",
+    "category": "M. Asking Students (O'quvchilardan so'rash)",
+    "english": "Are you ready now?",
+    "uzbek": "Hozir tayyormisiz?",
+    "audio": "audio/curator_130.mp3"
+  },
+  {
+    "id": "curator_131",
+    "number": 131,
+    "section": "Common Phrases (A1–A2)",
+    "category": "N. Ending the Lesson (Darsni yakunlash)",
+    "english": "Our lesson is over.",
+    "uzbek": "Darsimiz tugadi.",
+    "audio": "audio/curator_131.mp3"
+  },
+  {
+    "id": "curator_132",
+    "number": 132,
+    "section": "Common Phrases (A1–A2)",
+    "category": "N. Ending the Lesson (Darsni yakunlash)",
+    "english": "Time is up.",
+    "uzbek": "Vaqt tugadi.",
+    "audio": "audio/curator_132.mp3"
+  },
+  {
+    "id": "curator_133",
+    "number": 133,
+    "section": "Common Phrases (A1–A2)",
+    "category": "N. Ending the Lesson (Darsni yakunlash)",
+    "english": "Thank you for your work.",
+    "uzbek": "Mehnatingiz uchun rahmat.",
+    "audio": "audio/curator_133.mp3"
+  },
+  {
+    "id": "curator_134",
+    "number": 134,
+    "section": "Common Phrases (A1–A2)",
+    "category": "N. Ending the Lesson (Darsni yakunlash)",
+    "english": "See you tomorrow.",
+    "uzbek": "Ertaga ko'rishamiz.",
+    "audio": "audio/curator_134.mp3"
+  },
+  {
+    "id": "curator_135",
+    "number": 135,
+    "section": "Common Phrases (A1–A2)",
+    "category": "N. Ending the Lesson (Darsni yakunlash)",
+    "english": "Have a nice day.",
+    "uzbek": "Kuningiz yaxshi o'tsin.",
+    "audio": "audio/curator_135.mp3"
+  },
+  {
+    "id": "curator_136",
+    "number": 136,
+    "section": "Common Phrases (A1–A2)",
+    "category": "N. Ending the Lesson (Darsni yakunlash)",
+    "english": "Have a good weekend.",
+    "uzbek": "Dam olish kuningiz yaxshi o'tsin.",
+    "audio": "audio/curator_136.mp3"
+  },
+  {
+    "id": "curator_137",
+    "number": 137,
+    "section": "Common Phrases (A1–A2)",
+    "category": "N. Ending the Lesson (Darsni yakunlash)",
+    "english": "Take care.",
+    "uzbek": "O'zingizni ehtiyot qiling.",
+    "audio": "audio/curator_137.mp3"
+  },
+  {
+    "id": "curator_138",
+    "number": 138,
+    "section": "Common Phrases (A1–A2)",
+    "category": "N. Ending the Lesson (Darsni yakunlash)",
+    "english": "Goodbye, everyone.",
+    "uzbek": "Xayr, hammaga.",
+    "audio": "audio/curator_138.mp3"
+  },
+  {
+    "id": "curator_139",
+    "number": 139,
+    "section": "Common Phrases (A1–A2)",
+    "category": "N. Ending the Lesson (Darsni yakunlash)",
+    "english": "You may go now.",
+    "uzbek": "Endi ketishingiz mumkin.",
+    "audio": "audio/curator_139.mp3"
+  },
+  {
+    "id": "curator_140",
+    "number": 140,
+    "section": "Common Phrases (A1–A2)",
+    "category": "N. Ending the Lesson (Darsni yakunlash)",
+    "english": "See you next lesson.",
+    "uzbek": "Keyingi darsda ko'rishamiz.",
+    "audio": "audio/curator_140.mp3"
+  },
+  {
+    "id": "late_1",
+    "number": 1,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Roll Call & Presence (Davomat olish)",
+    "english": "Good morning, everyone.",
+    "uzbek": "Hammaga xayrli tong.",
+    "audio": "audio/late_1.mp3"
+  },
+  {
+    "id": "late_2",
+    "number": 2,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Roll Call & Presence (Davomat olish)",
+    "english": "I will check the attendance now.",
+    "uzbek": "Men hozir davomatni tekshiraman.",
+    "audio": "audio/late_2.mp3"
+  },
+  {
+    "id": "late_3",
+    "number": 3,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Roll Call & Presence (Davomat olish)",
+    "english": "Let's check the attendance.",
+    "uzbek": "Keling, davomatni tekshiramiz.",
+    "audio": "audio/late_3.mp3"
+  },
+  {
+    "id": "late_4",
+    "number": 4,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Roll Call & Presence (Davomat olish)",
+    "english": "Is everyone here today?",
+    "uzbek": "Bugun hamma shu yerdami?",
+    "audio": "audio/late_4.mp3"
+  },
+  {
+    "id": "late_5",
+    "number": 5,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Roll Call & Presence (Davomat olish)",
+    "english": "Who is absent today?",
+    "uzbek": "Bugun kim yo'q?",
+    "audio": "audio/late_5.mp3"
+  },
+  {
+    "id": "late_6",
+    "number": 6,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Roll Call & Presence (Davomat olish)",
+    "english": "Please say \"Here\" when I call your name.",
+    "uzbek": "Ismingizni aytsam, iltimos, \"Here\" deb javob bering.",
+    "audio": "audio/late_6.mp3"
+  },
+  {
+    "id": "late_7",
+    "number": 7,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Roll Call & Presence (Davomat olish)",
+    "english": "Raise your hand when I call your name.",
+    "uzbek": "Ismingiz aytilganda qo'lingizni ko'taring.",
+    "audio": "audio/late_7.mp3"
+  },
+  {
+    "id": "late_8",
+    "number": 8,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Roll Call & Presence (Davomat olish)",
+    "english": "Thank you.",
+    "uzbek": "Rahmat.",
+    "audio": "audio/late_8.mp3"
+  },
+  {
+    "id": "late_9",
+    "number": 9,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Roll Call & Presence (Davomat olish)",
+    "english": "One student is absent today.",
+    "uzbek": "Bugun bitta o'quvchi yo'q.",
+    "audio": "audio/late_9.mp3"
+  },
+  {
+    "id": "late_10",
+    "number": 10,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Roll Call & Presence (Davomat olish)",
+    "english": "Two students are absent today.",
+    "uzbek": "Bugun ikkita o'quvchi yo'q.",
+    "audio": "audio/late_10.mp3"
+  },
+  {
+    "id": "late_11",
+    "number": 11,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Absence & Health (Kelmaganlik va sog'liq)",
+    "english": "Why are you absent so often?",
+    "uzbek": "Nega siz tez-tez dars qoldirasiz?",
+    "audio": "audio/late_11.mp3"
+  },
+  {
+    "id": "late_12",
+    "number": 12,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Absence & Health (Kelmaganlik va sog'liq)",
+    "english": "Please bring an excuse letter.",
+    "uzbek": "Iltimos, sabab xatini olib keling.",
+    "audio": "audio/late_12.mp3"
+  },
+  {
+    "id": "late_13",
+    "number": 13,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Absence & Health (Kelmaganlik va sog'liq)",
+    "english": "Did you tell your parents?",
+    "uzbek": "Ota-onangizga aytdingizmi?",
+    "audio": "audio/late_13.mp3"
+  },
+  {
+    "id": "late_14",
+    "number": 14,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Absence & Health (Kelmaganlik va sog'liq)",
+    "english": "Were you sick yesterday?",
+    "uzbek": "Kecha kasal edingizmi?",
+    "audio": "audio/late_14.mp3"
+  },
+  {
+    "id": "late_15",
+    "number": 15,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Absence & Health (Kelmaganlik va sog'liq)",
+    "english": "I hope you feel better now.",
+    "uzbek": "Umid qilamanki, endi o'zingizni yaxshi his qilyapsiz.",
+    "audio": "audio/late_15.mp3"
+  },
+  {
+    "id": "late_16",
+    "number": 16,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Absence & Health (Kelmaganlik va sog'liq)",
+    "english": "Welcome back to school.",
+    "uzbek": "Maktabga qaytganingiz bilan.",
+    "audio": "audio/late_16.mp3"
+  },
+  {
+    "id": "late_17",
+    "number": 17,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Absence & Health (Kelmaganlik va sog'liq)",
+    "english": "We missed you.",
+    "uzbek": "Sizni sog'indik.",
+    "audio": "audio/late_17.mp3"
+  },
+  {
+    "id": "late_18",
+    "number": 18,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Absence & Health (Kelmaganlik va sog'liq)",
+    "english": "Please don't miss classes.",
+    "uzbek": "Iltimos, dars qoldirmang.",
+    "audio": "audio/late_18.mp3"
+  },
+  {
+    "id": "late_19",
+    "number": 19,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Absence & Health (Kelmaganlik va sog'liq)",
+    "english": "Regular attendance is important.",
+    "uzbek": "Doimiy davomat muhim.",
+    "audio": "audio/late_19.mp3"
+  },
+  {
+    "id": "late_20",
+    "number": 20,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Absence & Health (Kelmaganlik va sog'liq)",
+    "english": "Come to school every day.",
+    "uzbek": "Har kuni maktabga keling.",
+    "audio": "audio/late_20.mp3"
+  },
+  {
+    "id": "late_21",
+    "number": 21,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "You are late today.",
+    "uzbek": "Siz bugun kech qoldingiz.",
+    "audio": "audio/late_21.mp3"
+  },
+  {
+    "id": "late_22",
+    "number": 22,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Why are you late?",
+    "uzbek": "Nega kech qoldingiz?",
+    "audio": "audio/late_22.mp3"
+  },
+  {
+    "id": "late_23",
+    "number": 23,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "What happened?",
+    "uzbek": "Nima bo'ldi?",
+    "audio": "audio/late_23.mp3"
+  },
+  {
+    "id": "late_24",
+    "number": 24,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Please come on time tomorrow.",
+    "uzbek": "Ertaga vaqtida keling.",
+    "audio": "audio/late_24.mp3"
+  },
+  {
+    "id": "late_25",
+    "number": 25,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Try not to be late again.",
+    "uzbek": "Yana kech qolmaslikka harakat qiling.",
+    "audio": "audio/late_25.mp3"
+  },
+  {
+    "id": "late_26",
+    "number": 26,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "School starts at eight o'clock.",
+    "uzbek": "Maktab soat sakkizda boshlanadi.",
+    "audio": "audio/late_26.mp3"
+  },
+  {
+    "id": "late_27",
+    "number": 27,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Please arrive early.",
+    "uzbek": "Iltimos, ertaroq keling.",
+    "audio": "audio/late_27.mp3"
+  },
+  {
+    "id": "late_28",
+    "number": 28,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Don't run in the hallway.",
+    "uzbek": "Yo'lakda yugurmang.",
+    "audio": "audio/late_28.mp3"
+  },
+  {
+    "id": "late_29",
+    "number": 29,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Come into the classroom quietly.",
+    "uzbek": "Sinfga tinchgina kiring.",
+    "audio": "audio/late_29.mp3"
+  },
+  {
+    "id": "late_30",
+    "number": 30,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Take your seat quickly.",
+    "uzbek": "Joyingizga tez o'tiring.",
+    "audio": "audio/late_30.mp3"
+  },
+  {
+    "id": "late_31",
+    "number": 31,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "You missed the first lesson.",
+    "uzbek": "Siz birinchi darsni qoldirdingiz.",
+    "audio": "audio/late_31.mp3"
+  },
+  {
+    "id": "late_32",
+    "number": 32,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Please don't be late again.",
+    "uzbek": "Iltimos, yana kech qolmang.",
+    "audio": "audio/late_32.mp3"
+  },
+  {
+    "id": "late_33",
+    "number": 33,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Tell me the reason.",
+    "uzbek": "Menga sababini ayting.",
+    "audio": "audio/late_33.mp3"
+  },
+  {
+    "id": "late_34",
+    "number": 34,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Was there heavy traffic?",
+    "uzbek": "Yo'lda tirbandlik bo'ldimi?",
+    "audio": "audio/late_34.mp3"
+  },
+  {
+    "id": "late_35",
+    "number": 35,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Did your bus arrive late?",
+    "uzbek": "Avtobusingiz kech keldimi?",
+    "audio": "audio/late_35.mp3"
+  },
+  {
+    "id": "late_36",
+    "number": 36,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Late Arrival & Reasons (Kechikish va sabablar)",
+    "english": "Next time, leave home earlier.",
+    "uzbek": "Keyingi safar uydan ertaroq chiqing.",
+    "audio": "audio/late_36.mp3"
+  },
+  {
+    "id": "late_37",
+    "number": 37,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "Thank you for telling the truth.",
+    "uzbek": "Rostini aytganingiz uchun rahmat.",
+    "audio": "audio/late_37.mp3"
+  },
+  {
+    "id": "late_38",
+    "number": 38,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "Please be responsible.",
+    "uzbek": "Iltimos, mas'uliyatli bo'ling.",
+    "audio": "audio/late_38.mp3"
+  },
+  {
+    "id": "late_39",
+    "number": 39,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "Being on time is important.",
+    "uzbek": "Vaqtida kelish muhim.",
+    "audio": "audio/late_39.mp3"
+  },
+  {
+    "id": "late_40",
+    "number": 40,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "Good students come on time.",
+    "uzbek": "Yaxshi o'quvchilar vaqtida keladilar.",
+    "audio": "audio/late_40.mp3"
+  },
+  {
+    "id": "late_41",
+    "number": 41,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "Who came late today?",
+    "uzbek": "Bugun kim kech keldi?",
+    "audio": "audio/late_41.mp3"
+  },
+  {
+    "id": "late_42",
+    "number": 42,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "Please write your name here.",
+    "uzbek": "Iltimos, ismingizni shu yerga yozing.",
+    "audio": "audio/late_42.mp3"
+  },
+  {
+    "id": "late_43",
+    "number": 43,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "I will write your attendance.",
+    "uzbek": "Men davomatingizni qayd qilaman.",
+    "audio": "audio/late_43.mp3"
+  },
+  {
+    "id": "late_44",
+    "number": 44,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "Your attendance is very good.",
+    "uzbek": "Sizning davomatingiz juda yaxshi.",
+    "audio": "audio/late_44.mp3"
+  },
+  {
+    "id": "late_45",
+    "number": 45,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "Keep your attendance high.",
+    "uzbek": "Davomatingizni yuqori saqlang.",
+    "audio": "audio/late_45.mp3"
+  },
+  {
+    "id": "late_46",
+    "number": 46,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "Thank you for coming on time.",
+    "uzbek": "Vaqtida kelganingiz uchun rahmat.",
+    "audio": "audio/late_46.mp3"
+  },
+  {
+    "id": "late_47",
+    "number": 47,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "You are always on time.",
+    "uzbek": "Siz doim vaqtida kelasiz.",
+    "audio": "audio/late_47.mp3"
+  },
+  {
+    "id": "late_48",
+    "number": 48,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Punctuality & Discipline (Vaqtida kelish va tartib)",
+    "english": "Well done!",
+    "uzbek": "Barakalla!",
+    "audio": "audio/late_48.mp3"
+  },
+  {
+    "id": "late_49",
+    "number": 49,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "Please be ready before the lesson starts.",
+    "uzbek": "Dars boshlanishidan oldin tayyor bo'ling.",
+    "audio": "audio/late_49.mp3"
+  },
+  {
+    "id": "late_50",
+    "number": 50,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "Let's begin the lesson now.",
+    "uzbek": "Endi darsni boshlaymiz.",
+    "audio": "audio/late_50.mp3"
+  },
+  {
+    "id": "late_51",
+    "number": 51,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "I am happy to see everyone here.",
+    "uzbek": "Hamma shu yerda ekanidan xursandman.",
+    "audio": "audio/late_51.mp3"
+  },
+  {
+    "id": "late_52",
+    "number": 52,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "Everyone is present today.",
+    "uzbek": "Bugun hamma darsda.",
+    "audio": "audio/late_52.mp3"
+  },
+  {
+    "id": "late_53",
+    "number": 53,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "Nobody is absent today.",
+    "uzbek": "Bugun hech kim yo'q emas.",
+    "audio": "audio/late_53.mp3"
+  },
+  {
+    "id": "late_54",
+    "number": 54,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "Attendance is excellent today.",
+    "uzbek": "Bugungi davomat a'lo.",
+    "audio": "audio/late_54.mp3"
+  },
+  {
+    "id": "late_55",
+    "number": 55,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "Please keep this good habit.",
+    "uzbek": "Iltimos, bu yaxshi odatni davom ettiring.",
+    "audio": "audio/late_55.mp3"
+  },
+  {
+    "id": "late_56",
+    "number": 56,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "Come to school with a smile.",
+    "uzbek": "Maktabga tabassum bilan keling.",
+    "audio": "audio/late_56.mp3"
+  },
+  {
+    "id": "late_57",
+    "number": 57,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "Be on time every day.",
+    "uzbek": "Har kuni vaqtida keling.",
+    "audio": "audio/late_57.mp3"
+  },
+  {
+    "id": "late_58",
+    "number": 58,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "I appreciate your punctuality.",
+    "uzbek": "Sizning vaqtga rioya qilishingizni qadrlayman.",
+    "audio": "audio/late_58.mp3"
+  },
+  {
+    "id": "late_59",
+    "number": 59,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "Thank you for being responsible.",
+    "uzbek": "Mas'uliyatli bo'lganingiz uchun rahmat.",
+    "audio": "audio/late_59.mp3"
+  },
+  {
+    "id": "late_60",
+    "number": 60,
+    "section": "Attendance & Being Late (Davomat va kechikish)",
+    "category": "Attendance: Starting & Positive Habits (Darsni boshlash va ijobiy odatlar)",
+    "english": "Let's have a great lesson together.",
+    "uzbek": "Keling, birga ajoyib dars o'tkazamiz.",
+    "audio": "audio/late_60.mp3"
+  }
+]

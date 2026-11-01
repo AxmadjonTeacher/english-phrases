@@ -1,5 +1,5 @@
 /**
- * Common Phrases — Pure Minimalist & Mobile-Optimized Application
+ * Common Phrases — Minimalist Mobile Application with Autoplay & Uzbek Labels
  */
 
 (function () {
@@ -11,8 +11,15 @@
   let currentIndex = 0;
   let isFlipped = false;
   let currentView = 'card'; // 'card' | 'list' | 'quiz'
-  let activeCategory = 'all';
+  let activeCategory = 'all'; // 'all' | 'mastered' | 'learning' | category string
   let searchQuery = '';
+
+  // Autoplay State
+  let isAutoplaying = false;
+  let autoplayTimer = null;
+
+  // Persistence (LocalStorage)
+  let masteredSet = new Set(JSON.parse(localStorage.getItem('common_mastered') || '[]'));
 
   // DOM Elements
   const els = {
@@ -21,6 +28,9 @@
     // Top Bar
     btnOpenCategories: document.getElementById('btn-open-categories'),
     currentCatDisplay: document.getElementById('current-cat-display'),
+    btnAutoplay: document.getElementById('btn-autoplay'),
+    autoplayIcon: document.getElementById('autoplay-icon'),
+    autoplayText: document.getElementById('autoplay-text'),
     viewSwitchButtons: document.querySelectorAll('.view-switch-btn'),
     cardCounter: document.getElementById('card-counter'),
     progressIndicator: document.getElementById('progress-indicator'),
@@ -37,10 +47,16 @@
     backText: document.getElementById('back-text'),
     frontCardNumber: document.getElementById('front-card-number'),
     backCardNumber: document.getElementById('back-card-number'),
+    frontStatusChip: document.getElementById('front-status-chip'),
+    backStatusChip: document.getElementById('back-status-chip'),
     btnPlayFront: document.getElementById('btn-play-front'),
     btnPlayBack: document.getElementById('btn-play-back'),
     waveFront: document.getElementById('wave-front'),
     waveBack: document.getElementById('wave-back'),
+
+    // Uzbek Mastery Buttons
+    btnLabelMastered: document.getElementById('btn-label-mastered'),
+    btnLabelLearning: document.getElementById('btn-label-learning'),
 
     // Navigation Buttons
     btnPrev: document.getElementById('btn-prev'),
@@ -75,6 +91,28 @@
   let touchEndY = 0;
   let hasSwiped = false;
 
+  // Subtle Web Audio Chime
+  let audioCtx = null;
+  function playTone(type) {
+    try {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      const now = audioCtx.currentTime;
+      if (type === 'success') {
+        osc.frequency.setValueAtTime(523.25, now);
+        osc.frequency.setValueAtTime(659.25, now + 0.08);
+        gain.gain.setValueAtTime(0.06, now);
+        gain.gain.linearRampToValueAtTime(0.001, now + 0.18);
+        osc.start(now);
+        osc.stop(now + 0.18);
+      }
+    } catch (e) {}
+  }
+
   // --- INITIALIZATION ---
   function init() {
     if (window.PHRASES_DATA && Array.isArray(window.PHRASES_DATA)) {
@@ -91,13 +129,11 @@
     setupMobileAudioUnlock();
   }
 
-  // --- AUDIO UNLOCK FOR MOBILE (IOS SAFARI / ANDROID) ---
-  // Mobile browsers restrict audio playback unless unlocked during a user touch/click.
+  // Mobile Audio Unlock
   let isAudioUnlocked = false;
   function setupMobileAudioUnlock() {
     const unlock = () => {
       if (isAudioUnlocked) return;
-      // Prime the audio element silently
       els.audioEl.src = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
       els.audioEl.play().then(() => {
         els.audioEl.pause();
@@ -127,11 +163,23 @@
       catMap.set(p.category, (catMap.get(p.category) || 0) + 1);
     });
 
+    const masteredCount = masteredSet.size;
+    const learningCount = allPhrases.length - masteredCount;
+
     let html = `
       <button class="sheet-item ${activeCategory === 'all' ? 'active' : ''}" data-cat="all">
-        <span>📚 All Phrases</span>
+        <span>📚 Barcha iboralar</span>
         <span class="sheet-item-count">${allPhrases.length}</span>
       </button>
+      <button class="sheet-item ${activeCategory === 'mastered' ? 'active' : ''}" data-cat="mastered">
+        <span>✓ O'zlashtirildi</span>
+        <span class="sheet-item-count">${masteredCount}</span>
+      </button>
+      <button class="sheet-item ${activeCategory === 'learning' ? 'active' : ''}" data-cat="learning">
+        <span>🔄 O'rganilmoqda</span>
+        <span class="sheet-item-count">${learningCount}</span>
+      </button>
+      <div style="height: 1px; background: var(--border); margin: 0.35rem 0;"></div>
     `;
 
     for (const [cat, count] of catMap.entries()) {
@@ -161,6 +209,10 @@
   function updateCategoryDisplay() {
     if (activeCategory === 'all') {
       els.currentCatDisplay.textContent = 'All Phrases';
+    } else if (activeCategory === 'mastered') {
+      els.currentCatDisplay.textContent = "✓ O'zlashtirildi";
+    } else if (activeCategory === 'learning') {
+      els.currentCatDisplay.textContent = "🔄 O'rganilmoqda";
     } else {
       const cleanTitle = activeCategory.replace(/^[A-Z]\.\s*/, '').split('(')[0].trim();
       els.currentCatDisplay.textContent = cleanTitle;
@@ -170,7 +222,11 @@
   // --- FILTERS ---
   function applyFilters() {
     filteredPhrases = allPhrases.filter(p => {
-      if (activeCategory !== 'all' && p.category !== activeCategory) return false;
+      if (activeCategory === 'mastered' && !masteredSet.has(p.id)) return false;
+      if (activeCategory === 'learning' && masteredSet.has(p.id)) return false;
+      if (activeCategory !== 'all' && activeCategory !== 'mastered' && activeCategory !== 'learning' && p.category !== activeCategory) {
+        return false;
+      }
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase().trim();
         const enMatch = p.english.toLowerCase().includes(q);
@@ -223,7 +279,48 @@
     els.frontCardNumber.textContent = `#${phrase.number}`;
     els.backCardNumber.textContent = `#${phrase.number}`;
 
+    updateMasteryUI(phrase.id);
     updateCounter();
+  }
+
+  function updateMasteryUI(phraseId) {
+    const isMastered = masteredSet.has(phraseId);
+
+    if (isMastered) {
+      els.frontStatusChip.textContent = "✓ O'zlashtirildi";
+      els.frontStatusChip.className = "status-chip mastered";
+      els.backStatusChip.textContent = "✓ O'zlashtirildi";
+      els.backStatusChip.className = "status-chip mastered";
+
+      els.btnLabelMastered.classList.add('active');
+      els.btnLabelLearning.classList.remove('active');
+    } else {
+      els.frontStatusChip.textContent = "🔄 O'rganilmoqda";
+      els.frontStatusChip.className = "status-chip learning";
+      els.backStatusChip.textContent = "🔄 O'rganilmoqda";
+      els.backStatusChip.className = "status-chip learning";
+
+      els.btnLabelMastered.classList.remove('active');
+      els.btnLabelLearning.classList.add('active');
+    }
+  }
+
+  function setCardMastered(isMastered) {
+    const phrase = filteredPhrases[currentIndex];
+    if (!phrase) return;
+
+    if (isMastered) {
+      masteredSet.add(phrase.id);
+      playTone('success');
+      showToast("✓ O'zlashtirildi deb belgilandi");
+    } else {
+      masteredSet.delete(phrase.id);
+      showToast("🔄 O'rganilmoqda deb belgilandi");
+    }
+
+    localStorage.setItem('common_mastered', JSON.stringify([...masteredSet]));
+    updateMasteryUI(phrase.id);
+    renderCategorySheet();
   }
 
   function setCardFlipped(flipped) {
@@ -251,43 +348,101 @@
     renderCurrentCard();
   }
 
-  // --- AUDIO ENGINE (ZERO API CALLS, 100% PRE-RECORDED STATIC MP3s) ---
-  function playPhraseAudio(phrase) {
+  // --- AUTOPLAY SLIDESHOW ENGINE ---
+  function toggleAutoplay() {
+    if (isAutoplaying) {
+      stopAutoplay();
+    } else {
+      startAutoplay();
+    }
+  }
+
+  function startAutoplay() {
+    if (filteredPhrases.length === 0) return;
+    isAutoplaying = true;
+    els.btnAutoplay.classList.add('active');
+    els.autoplayIcon.textContent = '⏸';
+    els.autoplayText.textContent = "To'xtatish";
+    showToast("▶ Avto-ijro boshlandi");
+    runAutoplayStep();
+  }
+
+  function stopAutoplay() {
+    isAutoplaying = false;
+    clearTimeout(autoplayTimer);
+    els.btnAutoplay.classList.remove('active');
+    els.autoplayIcon.textContent = '▶';
+    els.autoplayText.textContent = 'Avto';
+  }
+
+  function runAutoplayStep() {
+    if (!isAutoplaying || filteredPhrases.length === 0) return;
+
+    setCardFlipped(false);
+    const phrase = filteredPhrases[currentIndex];
+
+    // 1. Play English audio
+    playPhraseAudio(phrase, () => {
+      if (!isAutoplaying) return;
+      // 2. Wait 1.2s after audio finishes, then flip to Uzbek
+      autoplayTimer = setTimeout(() => {
+        if (!isAutoplaying) return;
+        setCardFlipped(true);
+
+        // 3. Wait 2.2s on Uzbek side, then go to next card
+        autoplayTimer = setTimeout(() => {
+          if (!isAutoplaying) return;
+          nextCard();
+          autoplayTimer = setTimeout(runAutoplayStep, 400);
+        }, 2200);
+      }, 1200);
+    });
+  }
+
+  // --- AUDIO ENGINE (100% PRE-RECORDED STATIC MP3s, ZERO API COSTS) ---
+  function playPhraseAudio(phrase, onEnded) {
     if (!phrase) return;
 
     setWaveAnimation(true);
     els.audioEl.pause();
-
-    // Use relative path directly pointing to static file on Vercel
     els.audioEl.src = phrase.audio;
 
     const playPromise = els.audioEl.play();
     if (playPromise !== undefined) {
-      playPromise.then(() => {
-        // Playing cleanly
-      }).catch(err => {
-        console.warn('Audio play restricted or offline, using speech synthesis fallback:', err);
-        fallbackSpeech(phrase.english);
+      playPromise.then(() => {}).catch(err => {
+        console.warn('Audio play restricted or offline, using fallback:', err);
+        fallbackSpeech(phrase.english, onEnded);
       });
     }
 
-    els.audioEl.onended = () => setWaveAnimation(false);
+    els.audioEl.onended = () => {
+      setWaveAnimation(false);
+      if (onEnded) onEnded();
+    };
+
     els.audioEl.onerror = () => {
-      fallbackSpeech(phrase.english);
+      fallbackSpeech(phrase.english, onEnded);
     };
   }
 
-  function fallbackSpeech(text) {
+  function fallbackSpeech(text, onEnded) {
     if (!('speechSynthesis' in window)) {
       setWaveAnimation(false);
+      if (onEnded) onEnded();
       return;
     }
     window.speechSynthesis.cancel();
     const cleanText = text.replace(/["“”]/g, '').trim();
     const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = 'en-US';
-    utterance.onend = () => setWaveAnimation(false);
-    utterance.onerror = () => setWaveAnimation(false);
+    utterance.onend = () => {
+      setWaveAnimation(false);
+      if (onEnded) onEnded();
+    };
+    utterance.onerror = () => {
+      setWaveAnimation(false);
+      if (onEnded) onEnded();
+    };
     window.speechSynthesis.speak(utterance);
   }
 
@@ -310,10 +465,12 @@
 
     let html = '';
     filteredPhrases.forEach((p, idx) => {
+      const isMastered = masteredSet.has(p.id);
+      const tag = isMastered ? '✓' : '';
       html += `
         <div class="list-item-card" data-idx="${idx}">
           <div class="list-item-texts">
-            <div class="list-en">${escapeHtml(p.english)}</div>
+            <div class="list-en">${escapeHtml(p.english)} <span style="color:var(--success);">${tag}</span></div>
             <div class="list-uz">${escapeHtml(p.uzbek)}</div>
           </div>
           <button class="list-play-btn" data-audio-id="${p.id}" aria-label="Play audio">
@@ -363,7 +520,7 @@
 
     quizAnswered = false;
     els.btnQuizNext.style.display = 'none';
-    els.quizStatus.textContent = 'Select the correct Uzbek translation';
+    els.quizStatus.textContent = 'To\'g\'ri o\'zbekcha tarjimani tanlang';
     els.quizStatus.className = 'quiz-status';
 
     const randIdx = Math.floor(Math.random() * pool.length);
@@ -409,11 +566,14 @@
     if (isCorrect) {
       quizScore++;
       clickedBtn.classList.add('correct');
-      els.quizStatus.textContent = '✓ Correct!';
+      els.quizStatus.textContent = '✓ To\'g\'ri!';
       els.quizStatus.className = 'quiz-status correct';
+      playTone('success');
+      masteredSet.add(quizTarget.id);
+      localStorage.setItem('common_mastered', JSON.stringify([...masteredSet]));
     } else {
       clickedBtn.classList.add('wrong');
-      els.quizStatus.textContent = `Correct: ${quizTarget.uzbek}`;
+      els.quizStatus.textContent = `To'g'ri javob: ${quizTarget.uzbek}`;
       els.quizStatus.className = 'quiz-status wrong';
       const correctBtn = els.quizChoices.querySelector(`[data-id="${quizTarget.id}"]`);
       if (correctBtn) correctBtn.classList.add('correct');
@@ -425,6 +585,7 @@
 
   // --- VIEW SWITCHING ---
   function switchView(viewName) {
+    stopAutoplay();
     currentView = viewName;
     els.viewSwitchButtons.forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-view') === viewName);
@@ -441,6 +602,15 @@
     } else if (viewName === 'quiz') {
       initQuiz();
     }
+  }
+
+  function showToast(msg) {
+    els.toast.textContent = msg;
+    els.toast.classList.add('show');
+    clearTimeout(els.toastTimer);
+    els.toastTimer = setTimeout(() => {
+      els.toast.classList.remove('show');
+    }, 1600);
   }
 
   function escapeHtml(str) {
@@ -461,6 +631,9 @@
       });
     });
 
+    // Autoplay Button
+    els.btnAutoplay.addEventListener('click', toggleAutoplay);
+
     // Category Bottom Sheet Open / Close
     els.btnOpenCategories.addEventListener('click', openCategorySheet);
     els.btnCloseSheet.addEventListener('click', closeCategorySheet);
@@ -473,18 +646,40 @@
       applyFilters();
     });
 
-    // Flashcard Flip & Nav
+    // Card Touch Flip
     els.cardTouchZone.addEventListener('click', (e) => {
       if (hasSwiped) return;
-      if (e.target.closest('.audio-action-btn')) return;
+      if (e.target.closest('.audio-action-btn') || e.target.closest('.label-btn')) return;
       toggleFlip();
     });
 
-    els.btnFlip.addEventListener('click', toggleFlip);
-    els.btnPrev.addEventListener('click', prevCard);
-    els.btnNext.addEventListener('click', nextCard);
+    els.btnFlip.addEventListener('click', () => {
+      stopAutoplay();
+      toggleFlip();
+    });
 
-    // Audio Buttons
+    els.btnPrev.addEventListener('click', () => {
+      stopAutoplay();
+      prevCard();
+    });
+
+    els.btnNext.addEventListener('click', () => {
+      stopAutoplay();
+      nextCard();
+    });
+
+    // Uzbek Mastery Labels (Mastered / Learning)
+    els.btnLabelMastered.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setCardMastered(true);
+    });
+
+    els.btnLabelLearning.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setCardMastered(false);
+    });
+
+    // Audio Play Buttons
     els.btnPlayFront.addEventListener('click', (e) => {
       e.stopPropagation();
       playPhraseAudio(filteredPhrases[currentIndex]);
@@ -501,7 +696,7 @@
     });
     els.btnQuizNext.addEventListener('click', renderQuizQuestion);
 
-    // Touch Swipe Gestures
+    // Touch Swipe Gestures on Mobile
     els.cardTouchZone.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
       touchStartY = e.changedTouches[0].screenY;
@@ -522,15 +717,16 @@
       const diffX = touchEndX - touchStartX;
       const diffY = touchEndY - touchStartY;
       if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        stopAutoplay();
         if (diffX < 0) {
-          nextCard(); // Swipe left
+          nextCard();
         } else {
-          prevCard(); // Swipe right
+          prevCard();
         }
       }
     }, { passive: true });
 
-    // Keyboard
+    // Keyboard Navigation
     window.addEventListener('keydown', (e) => {
       if (e.target.tagName === 'INPUT') return;
       if (currentView === 'card') {

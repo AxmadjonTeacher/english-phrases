@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Common Phrases — Pure Minimalist, Zero-Scroll Mobile-First Stylesheet
+   Common Phrases — Pure Minimalist, Zero-Scroll Mobile Stylesheet
    ========================================================================== */
 
 :root {
@@ -21,7 +21,15 @@
   --primary-border: #c7d2fe;
   
   --success: #10b981;
+  --success-dark: #059669;
   --success-light: #ecfdf5;
+  --success-border: #a7f3d0;
+
+  --warning: #f59e0b;
+  --warning-dark: #d97706;
+  --warning-light: #fffbeb;
+  --warning-border: #fde68a;
+
   --danger: #ef4444;
   
   --shadow-card: 0 10px 30px -4px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.03);
@@ -43,7 +51,7 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  position: fixed; /* Prevents bounce scroll on mobile iOS Safari */
+  position: fixed; /* Prevents scroll bounce on mobile Safari */
 }
 
 body {
@@ -81,11 +89,11 @@ button {
 .top-bar {
   height: 52px;
   flex-shrink: 0;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.85rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.5rem;
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border);
   z-index: 10;
@@ -95,16 +103,17 @@ button {
 .cat-pill-btn {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.8rem;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 9999px;
   color: var(--text-main);
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 700;
-  max-width: 50%;
+  max-width: 38%;
   transition: var(--transition);
+  flex-shrink: 0;
 }
 
 .cat-pill-btn:active {
@@ -119,14 +128,48 @@ button {
 }
 
 .cat-arrow {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
+}
+
+/* Autoplay Pill Button */
+.autoplay-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.autoplay-btn:active {
+  transform: scale(0.96);
+}
+
+.autoplay-btn.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
+  animation: pulseGlow 1.8s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.03); }
 }
 
 .top-bar-right {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.5rem;
+  min-width: 0;
 }
 
 /* Mode Switcher */
@@ -136,12 +179,13 @@ button {
   padding: 2px;
   border-radius: 9999px;
   border: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
 .view-switch-btn {
-  padding: 0.3rem 0.65rem;
+  padding: 0.28rem 0.55rem;
   border-radius: 9999px;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--text-muted);
   transition: var(--transition);
@@ -154,7 +198,7 @@ button {
 }
 
 .counter-tag {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 800;
   color: var(--text-muted);
   white-space: nowrap;
@@ -181,12 +225,12 @@ button {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0.75rem 1rem max(0.75rem, env(safe-area-inset-bottom)) 1rem;
-  min-height: 0; /* Prevents flex overflow */
+  padding: 0.65rem 0.85rem max(0.65rem, env(safe-area-inset-bottom)) 0.85rem;
+  min-height: 0;
   overflow: hidden;
 }
 
-/* The Card Zone (Expands to fill vertical room) */
+/* The Card Zone */
 .card-touch-zone {
   flex: 1;
   position: relative;
@@ -194,7 +238,7 @@ button {
   min-height: 0;
   cursor: pointer;
   touch-action: pan-y;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 
 .flashcard {
@@ -217,7 +261,7 @@ button {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: 1.5rem 1.25rem;
+  padding: 1.25rem 1.15rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -236,16 +280,17 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .lang-chip {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--primary);
   background: var(--primary-light);
-  padding: 0.25rem 0.65rem;
+  padding: 0.2rem 0.55rem;
   border-radius: 9999px;
 }
 
@@ -254,8 +299,29 @@ button {
   background: #ccfbf1;
 }
 
+/* Top Status Chip (Mastered / Learning) */
+.status-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.status-chip.mastered {
+  background: var(--success-light);
+  color: var(--success-dark);
+  border: 1px solid var(--success-border);
+}
+
+.status-chip.learning {
+  background: var(--warning-light);
+  color: var(--warning-dark);
+  border: 1px solid var(--warning-border);
+}
+
 .number-chip {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--text-subtle);
 }
@@ -266,19 +332,19 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem;
+  gap: 1.15rem;
   text-align: center;
   width: 100%;
-  padding: 0.5rem 0;
+  padding: 0.25rem 0;
 }
 
 .card-phrase {
-  font-size: clamp(1.5rem, 5.8vw, 2.35rem);
+  font-size: clamp(1.45rem, 5.5vw, 2.3rem);
   font-weight: 800;
   color: var(--text-main);
   letter-spacing: -0.02em;
   line-height: 1.3;
-  max-width: 95%;
+  max-width: 96%;
 }
 
 /* Pronunciation Audio Button */
@@ -286,16 +352,16 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.5rem;
+  gap: 0.55rem;
+  padding: 0.7rem 1.4rem;
   border-radius: 9999px;
   background: var(--primary-light);
   border: 1px solid var(--primary-border);
   color: var(--primary);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 700;
   transition: var(--transition);
-  min-height: 48px;
+  min-height: 46px;
   box-shadow: 0 2px 6px rgba(79, 70, 229, 0.12);
 }
 
@@ -337,38 +403,93 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .flip-hint {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-subtle);
 }
 
-/* Bottom Controls (Thumb Bar) */
-.bottom-controls {
-  height: 56px;
-  flex-shrink: 0;
+/* Uzbek Label Actions on Back of Card */
+.uzbek-label-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.65rem;
+  justify-content: center;
+  gap: 0.55rem;
   width: 100%;
 }
 
-.nav-control-btn {
+.label-btn {
   flex: 1;
-  height: 50px;
-  border-radius: 9999px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  color: var(--text-main);
-  font-size: 0.95rem;
+  max-width: 175px;
+  padding: 0.55rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.82rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
+  transition: var(--transition);
+  min-height: 42px;
+}
+
+.label-btn:active {
+  transform: scale(0.96);
+}
+
+.label-btn.btn-mastered {
+  background: var(--success-light);
+  color: var(--success-dark);
+  border: 1.5px solid var(--success-border);
+}
+
+.label-btn.btn-mastered.active {
+  background: var(--success);
+  color: white;
+  border-color: var(--success);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.label-btn.btn-learning {
+  background: var(--warning-light);
+  color: var(--warning-dark);
+  border: 1.5px solid var(--warning-border);
+}
+
+.label-btn.btn-learning.active {
+  background: var(--warning);
+  color: white;
+  border-color: var(--warning);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+/* Bottom Controls (Thumb Bar) */
+.bottom-controls {
+  height: 54px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.nav-control-btn {
+  flex: 1;
+  height: 48px;
+  border-radius: 9999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: var(--transition);
 }
@@ -402,24 +523,24 @@ button {
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 1rem 1rem max(1rem, env(safe-area-inset-bottom)) 1rem;
+  padding: 0.85rem 0.85rem max(0.85rem, env(safe-area-inset-bottom)) 0.85rem;
 }
 
 .list-container {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .list-item-card {
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 1rem 1.15rem;
+  padding: 0.85rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.65rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
@@ -429,21 +550,21 @@ button {
 }
 
 .list-en {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 800;
   color: var(--text-main);
 }
 
 .list-uz {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-muted);
   margin-top: 2px;
 }
 
 .list-play-btn {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: var(--primary-light);
   color: var(--primary);
@@ -464,18 +585,18 @@ button {
   flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 1rem 1rem max(1rem, env(safe-area-inset-bottom)) 1rem;
+  padding: 0.85rem 0.85rem max(0.85rem, env(safe-area-inset-bottom)) 0.85rem;
 }
 
 .quiz-box {
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: 1.5rem 1.25rem;
+  padding: 1.35rem 1.15rem;
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.15rem;
 }
 
 .quiz-top {
@@ -497,41 +618,41 @@ button {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
   padding: 0.5rem 0;
 }
 
 .quiz-en-text {
-  font-size: clamp(1.4rem, 5vw, 1.85rem);
+  font-size: clamp(1.35rem, 5vw, 1.8rem);
   font-weight: 800;
   color: var(--text-main);
   line-height: 1.3;
 }
 
 .audio-action-btn.mini {
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-  min-height: 38px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.82rem;
+  min-height: 36px;
 }
 
 .quiz-choices {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.6rem;
 }
 
 .quiz-choice-btn {
   width: 100%;
   text-align: left;
-  padding: 0.95rem 1.15rem;
+  padding: 0.9rem 1.1rem;
   border-radius: 12px;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   color: var(--text-main);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 700;
   transition: var(--transition);
-  min-height: 50px;
+  min-height: 48px;
 }
 
 .quiz-choice-btn:active {
@@ -541,7 +662,7 @@ button {
 
 .quiz-choice-btn.correct {
   background: var(--success-light);
-  color: var(--success);
+  color: var(--success-dark);
   border-color: var(--success);
 }
 
@@ -559,16 +680,16 @@ button {
 }
 
 .quiz-status {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--text-muted);
 }
 
-.quiz-status.correct { color: var(--success); }
+.quiz-status.correct { color: var(--success-dark); }
 .quiz-status.wrong { color: var(--danger); }
 
 /* ==========================================================================
-   CATEGORY BOTTOM SHEET (iOS/Material Native Feel)
+   CATEGORY BOTTOM SHEET
    ========================================================================== */
 .sheet-overlay {
   position: fixed;
@@ -681,10 +802,10 @@ button {
   padding: 0.75rem 0.85rem;
   border-radius: 12px;
   color: var(--text-main);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 700;
   text-align: left;
-  min-height: 46px;
+  min-height: 44px;
 }
 
 .sheet-item:active {
@@ -712,7 +833,7 @@ button {
 /* Toast */
 .toast {
   position: fixed;
-  bottom: 4rem;
+  bottom: 4.5rem;
   left: 50%;
   transform: translateX(-50%) translateY(80px);
   background: #0f172a;
@@ -726,6 +847,8 @@ button {
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 120;
   pointer-events: none;
+  max-width: 90vw;
+  text-align: center;
 }
 
 .toast.show {

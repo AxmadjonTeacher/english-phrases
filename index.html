@@ -26,6 +26,12 @@
         <span class="cat-arrow">▾</span>
       </button>
 
+      <!-- Autoplay Button -->
+      <button class="autoplay-btn" id="btn-autoplay" aria-label="Auto play cards" title="Avto-ijro rejimi">
+        <span id="autoplay-icon">▶</span>
+        <span class="autoplay-label" id="autoplay-text">Avto</span>
+      </button>
+
       <!-- Minimal Mode Switcher & Counter -->
       <div class="top-bar-right">
         <div class="view-switch" role="tablist">
@@ -55,6 +61,7 @@
           <div class="card-face card-front">
             <div class="card-face-top">
               <span class="lang-chip">English</span>
+              <span class="status-chip learning" id="front-status-chip">O'rganilmoqda</span>
               <span class="number-chip" id="front-card-number">#1</span>
             </div>
 
@@ -84,6 +91,7 @@
           <div class="card-face card-back">
             <div class="card-face-top">
               <span class="lang-chip uzbek">O'zbekcha</span>
+              <span class="status-chip learning" id="back-status-chip">O'rganilmoqda</span>
               <span class="number-chip" id="back-card-number">#1</span>
             </div>
 
@@ -103,8 +111,18 @@
               </button>
             </div>
 
+            <!-- Card Back Footer: Uzbek Mastery Labels -->
             <div class="card-face-bottom">
-              <span class="flip-hint">Tap card to return</span>
+              <div class="uzbek-label-actions">
+                <button class="label-btn btn-mastered" id="btn-label-mastered" title="O'zlashtirildi deb belgilash">
+                  <span class="label-icon">✓</span>
+                  <span>O'zlashtirildi</span>
+                </button>
+                <button class="label-btn btn-learning" id="btn-label-learning" title="O'rganilmoqda deb belgilash">
+                  <span class="label-icon">🔄</span>
+                  <span>O'rganilmoqda</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -187,13 +205,13 @@
   <div class="category-sheet" id="category-sheet">
     <div class="sheet-handle"></div>
     <div class="sheet-header">
-      <span class="sheet-title">Select Category</span>
+      <span class="sheet-title">Kategoriyalar</span>
       <button class="sheet-close" id="btn-close-sheet">✕</button>
     </div>
 
     <!-- Quick Search -->
     <div class="sheet-search">
-      <input type="text" id="sheet-search-input" placeholder="Search phrases in English or Uzbek..." autocomplete="off">
+      <input type="text" id="sheet-search-input" placeholder="Qidirish (inglizcha yoki o'zbekcha)..." autocomplete="off">
     </div>
 
     <!-- Category Items List -->
